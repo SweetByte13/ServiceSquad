@@ -23,9 +23,7 @@ class Volunteer(db.Model, SerializerMixin):
     organizations = db.assossiatian_proxy('opportunities', 'organization')
 
 class Organization(db.Model, SerializerMixin):
-    
-    serialize_rules = ()
-    
+
     __tablename__= 'organizations'
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String, unique=True, nullable=False)
@@ -35,8 +33,6 @@ class Organization(db.Model, SerializerMixin):
 
 
 class Opportunity(db.Model, SerializerMixin):
-    
-    serialize_rules = ()
     
     __tablename__= "opportunities"
     id=db.Column(db.Integer, primary_key=True)
