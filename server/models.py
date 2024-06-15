@@ -26,7 +26,7 @@ class Volunteer(db.Model, SerializerMixin):
     zipcode=db.Column(db.Integer)
 
     opportunities = db.relationship('Opportunity', back_populates='pizza', cascade='all, delete-orphan')
-    organizations = db.assossiatian_proxy('opportunities', 'organization')
+    organizations = db.association_proxy('opportunities', 'organization')
     
     def __repr__(self):
         return f"<Volunteer {self.id}: {self.name}, {self.username}, {self.email}, {self.phone_number}, {self.interests}, {self.skills}, {self.hours_wanted}>"
