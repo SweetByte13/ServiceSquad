@@ -17,6 +17,55 @@ from config import app, db, api
 def index():
     return '<h1>Project Server</h1>'
 
+# class Opportunities(Resource):
+#     def get(self):
+#         opportunity = Opportunity.query.all()
+#         opportunity_list = opportunity.to_dict()
+#         return make_response(opportunity_list, 200)
+
+# class OpportunitiesById(Resource):
+#     def get(self, id):
+#         opportunity = Opportunities.query.filter_by(id=id).first()
+#         if opportunity:
+#             return make_response(opportunity.to_dict(), 200)
+#         else:
+#             return make_response({'error': 'Opportunity not found'}, 404)
+
+# class OpportunitiesRoute(Resource):
+#     def post(self):
+#         try:
+#             data = request.get_json()
+#             opportunity...
+#                 name=
+#                 description=
+#                 location=
+            
+
+
+# class OrganizationById(Resource):
+#     def get(self, id):
+#         organization = Organization.query.all()
+#         organization_list = organization.to_dict()
+#         return make_response(organization_list, 200)
+    
+#     def delete(self, id):
+#         organization = Organization.query.filter_by(id=id).first()
+#         if organization:
+#             db.session.delete(organization)
+#             db.session.commit()
+#             return make_response({"message": "Organization deleted successfully."}, 204)
+#         else:
+#             return make_response({"error": "Organization not found"}, 404)
+    
+
+# api.add_resource(Home, '/home')
+# api.add_resource(Signup, '/signup')
+# api.add_resource(Login, '/login')
+# api.add_resource(Profile, '/profile')
+# api/add_resource(Organization, '/organization')
+# api.add_resource(OrganizationById, '/organization/<int:id>')
+# api.add_resource(Opportunities, '/opportunities')
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
