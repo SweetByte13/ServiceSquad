@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-// import NavBar from "../components/NavBar";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "../components/NavBar";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Profile from "../pages/Profile";
+import Opportunities from "../pages/Opportunities";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +26,7 @@ function App() {
     <>
     <NavBar user={user} setUser={setUser} />
     <main>
-      <Switch>
+      <Routes>
         <Route path="/home">
           <Home user={user}/>
         </Route>
@@ -34,7 +36,7 @@ function App() {
         <Route path="/opportunities">
           <Opportunities user={user}/>
         </Route>
-      </Switch>
+      </Routes>
     </main>
     </>
   )

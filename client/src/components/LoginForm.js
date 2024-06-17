@@ -16,4 +16,4 @@ function LoginForm({}) {
         </div>
     )
 }
-export default LogInContainer
+export default LoginForm

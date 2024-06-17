@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from "./pages/App";
+import App from "./components/App";
 import Login from "./pages/Login";
 import SignUpForm from "./components/SignUpForm";
 import Profile from "./pages/Profile";
