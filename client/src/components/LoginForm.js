@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function LogInContainer({}) {
+function LoginForm({}) {
 
     useEffect(() => {
         fetch("http://localhost:5555/login")
