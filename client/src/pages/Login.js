@@ -1,14 +1,38 @@
-import React from "react";
-import LogInContainer from "../components/LogInContainer";
+import React, {useState} from "react";
+import LogInForm from "../components/LoginForm";
 
-function Login() {
+
+function Login({onLogin}) {
+const [showLogin, setShowLogin] = useState(true);
+
     return (
-    <div>
-        <h1>This is the Login.</h1>
-    </div>
+        <Wrapper>
+            <Logo>ServiceSquad</Logo>
+            { showLogin ? (
+            <>
+                <LogInForm onLogin={onLogin} />
+                    <Divider />
+                        <p>
+                            Don't have an account? &nbsp;
+                            <Button onClick={() => setShowLogin(false)}>
+                                Sign Up
+                            </Button>
+                        </p>
+            </>
+            ):(
+            <>
+                <SignUpForm onLogin={onLogin} />
+                    <Divider/>
+                        <p>
+                            Already have an account? &nbsp;
+                            <Button onClick={() => setShowLogin(true)}>
+                                Log In
+                            </Button>
+                        </p>
+            </>
+            )}
+        </Wrapper>
     )
 }
 
 export default Login;
-
-// set state for login
