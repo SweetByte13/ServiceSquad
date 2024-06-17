@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from "./components/App";
-import Login from "./components/Login";
+import App from "./pages/App";
+import Login from "./pages/Login";
 import SignUpForm from "./components/SignUpForm";
-import Profile from "./components/Profile";
+import Profile from "./pages/Profile";
 import OpportunitiesContainer from "./components/OpportunitiesContainer";
 import OpportunityDetails from "./components/OpportunityDetails";
 //import { createRoot } from "react-dom/client";
