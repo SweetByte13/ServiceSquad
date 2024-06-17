@@ -65,6 +65,7 @@ def index():
 # api/add_resource(Organization, '/organization')
 # api.add_resource(OrganizationById, '/organization/<int:id>')
 # api.add_resource(Opportunities, '/opportunities')
+# api.add_resource(OpportunitiesById, '/opportunities/<int:id>')
 
 
 if __name__ == '__main__':
