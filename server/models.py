@@ -2,7 +2,6 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates
 from flask.ext.bcrypt import Bcrypt
-from sqlalchemy.ext.hybrid import hybrid_property
 
 from config import db, app
 bcrypt = Bcrypt(app)
@@ -12,6 +11,9 @@ class Volunteer(db.Model, SerializerMixin):
     
     serialize_rules = ('-_password_hash',)
     
+    __table_arg__ = (
+        db.CheckConstraint('length(username) > 6', name='username_length_over_six'), db.CheckConstraint('length(phone_number) = 10 or len(phone_number) = 15', name='phone_number_length_ten'),
+    ) 
     
     __tablename__ = 'volunteers'
     id=db.Column(db.Integer, primary_key=True)
@@ -29,7 +31,7 @@ class Volunteer(db.Model, SerializerMixin):
     organizations = db.association_proxy('opportunities', 'organization')
     
     def __repr__(self):
-        return f"<Volunteer {self.id}: {self.name}, {self.username}, {self.email}, {self.phone_number}, {self.interests}, {self.skills}, {self.hours_wanted}>"
+        return f"<Volunteer {self.id}: {self.name}, {self.username}, {self.email}, {self.phone_number}, {self.interests}, {self.skills}, {self.hours_wanted}, {self.zipcode}>"
     
     @property 
     def password_hash(self):
@@ -42,21 +44,52 @@ class Volunteer(db.Model, SerializerMixin):
     def authenticate(self, password):
         return bcrypt.check_password_hash(self._password_hash, password)
     
-    #vaidate: must have name: email has @ in it: phone number length: username is unique, 6+ characters:password 8+, needs spec character and 2 #s
-    
     @validates('name')
     def validates_name(self, key, new_name):
         if not new_name:
             raise ValueError("Name is required")
+        return new_name
     
     @validates('email')    
     def validates_email(self, key, new_email):
+        if not new_email:
+            raise ValueError("Email is required")
         if '@' not in new_email:
             raise ValueError("Email must contain the @ symbol")
+        if len(new_email) < 8:
+            raise ValueError("Must be a valid email address")
+        return new_email
         
     @validates('phone_number')
     def validates_phone_number(self, key, new_phone_number):
-            pass
+        if not new_phone_number:
+            raise ValueError("Phone number is required")
+        if len(new_phone_number) != 10 or len(new_phone_number) != 15:
+            raise ValueError("Must be a valid phone number")
+        return new_phone_number
+    
+    @validates('username')
+    def validates_username(self, key, new_username):
+        if not new_username:
+            raise ValueError("Username is required")
+        if len(new_username) < 6:
+            raise ValueError("Username must be longer than 6 characters")
+        if new_username == Volunteer.username:
+            raise ValueError("Username must be unique")
+        return new_username
+        
+    @validates('_password_hash')
+    def validates_password(self, key, new_password):
+        SpecialChar =['$', '@', '#', '%', '?', '!', '&', '^', '*', '<', '>']
+        if not new_password:
+            raise ValueError("Must have a password")
+        if len(new_password) < 8:
+            raise ValueError("Password must be longer than 8 characters")
+        if not any(char.isdigit() for char in new_password):
+            raise ValueError('Password should have at least one numeral')
+        if not any(char in SpecialChar for char in new_password):
+            raise ValueError("Password should have at least one of the symbols !?$@#&^*<>")
+        return new_password
 
 class Organization(db.Model, SerializerMixin):
 
