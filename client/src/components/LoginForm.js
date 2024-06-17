@@ -1,19 +1,27 @@
 import React, { useEffect } from "react";
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
-function LoginForm({}) {
+function LoginForm({onLogin}) {
+    // let LoginSchema = yup.object().shape({
+    //     username: yup.string().required().min(6),
+    //     password_hash: yup.string().required().min(8)
+    // })
 
-   // useEffect(() => {
-   //     fetch("http://localhost:5555/login")
-   //     .then((resp) => (resp.json()))
-    //    .then ((data) => setLogin(data))
-   // }, [])
+    // do we need double {} for the initialValues?
+    // return (
+    //   <section>
+    //     <Formik
+    //         initialValues = {{
+    //             username: '',
+    //             password_hash: ''
+    //         }}
+    //         validationSchema={LoginSchema}
+    //         onSubmit={}
+    //     >
 
-    return (
-        <div className="login-container">
-            <div className="login-inner-container">
-                {}
-            </div>
-        </div>
-    )
+    //     </Formik>
+    //   </section>
+    // )
 }
-export default LogInContainer
+export default LoginForm;

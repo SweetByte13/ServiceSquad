@@ -4,7 +4,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from "./pages/App";
+import App from "./components/App";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUpForm from "./components/SignUpForm";
 import Profile from "./pages/Profile";
@@ -15,27 +16,31 @@ import OpportunityDetails from "./components/OpportunityDetails";
 const routes = [
     {
         path:'/',
-        element: <App />,
+        element: <Home />,
+    },
+    {
+        path: '/home',
+        element:<Home />
     },
     {
         path:'/login',
-        element: <Login />,
+        element: <Login />
     },
     {
         path:'/signup',
-        element: <SignUpForm />,
+        element: <SignUpForm />
     },
     {
         path:'/profile',
-        element: <Profile />,
+        element: <Profile />
     },
     {
         path:'/opportunities',
-        element: <OpportunitiesContainer />,
+        element: <OpportunitiesContainer />
     },
     {
         path:'/opportunities/:id',
-        element: <OpportunityDetails />,
+        element: <OpportunityDetails />
     },
 
 ]
