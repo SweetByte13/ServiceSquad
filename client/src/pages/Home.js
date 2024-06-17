@@ -1,36 +1,30 @@
 import React from "react";
-
+import HomeImageCarousel from "../components/HomeImageCarousel";
+import Header from "../components/Header";
+//import NavBar from "../components/NavBar";
 function Home() {
 
 
     return (
     <div>
-        <NavBar />
-        <header>
-            <h1>ServiceSquad!</h1>
-        </header>
-        <div>
-            {/* image carosel */}
-            <h1>
-            Overlaying Blurb Big title text
+        <Header />
+        <HomeImageCarousel />
+    {/* //    <NavBar /> */}
+        <div className="about">
+            <h1 className="about-heading">
+                About ServiceSquad
             </h1>
-            <p>
-                Overlaying Blurb Information Text
-            </p>
-            <button>
-                GET STARTED
-            </button>
+            <h3>
+                ServiceSquad was first formed...
+                Today, ServiceSquad operates in ...
+            </h3>
+            
+            <h3>Volunteers counter</h3> 
+            <h3>Organizations counter</h3>
+            <h3>Communities counter</h3>
+            
         </div>
-        <div>
-            <h1>
-                Title
-            </h1>
-            About ServiceSquad
-        </div>
-        <div>Volunteers counter</div> 
-        <div>Organizations counter</div>
-        <div>Communities counter</div>
-        <h1>This is the HOME Page.</h1>
+
     </div>
     )
 }
