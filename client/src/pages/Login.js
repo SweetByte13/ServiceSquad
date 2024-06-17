@@ -1,17 +1,20 @@
 import React, {useState} from "react";
 import LogInForm from "../components/LoginForm";
+import Button from 'react-bootstrap/Button';
+import SignUpForm from "../components/SignUpForm";
+import Navbar from 'react-bootstrap/Navbar';
 
 
 function Login({onLogin}) {
 const [showLogin, setShowLogin] = useState(true);
 
     return (
-        <Wrapper>
-            <Logo>ServiceSquad</Logo>
+        <div>
+            <Navbar.Brand>ServiceSquad</Navbar.Brand>
             { showLogin ? (
             <>
                 <LogInForm onLogin={onLogin} />
-                    <Divider />
+                    <br></br>
                         <p>
                             Don't have an account? &nbsp;
                             <Button onClick={() => setShowLogin(false)}>
@@ -22,7 +25,7 @@ const [showLogin, setShowLogin] = useState(true);
             ):(
             <>
                 <SignUpForm onLogin={onLogin} />
-                    <Divider/>
+                    <br></br>
                         <p>
                             Already have an account? &nbsp;
                             <Button onClick={() => setShowLogin(true)}>
@@ -31,7 +34,7 @@ const [showLogin, setShowLogin] = useState(true);
                         </p>
             </>
             )}
-        </Wrapper>
+        </div>
     )
 }
 
