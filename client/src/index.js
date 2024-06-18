@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+//the above bootstrap import is for the carousel feature
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
