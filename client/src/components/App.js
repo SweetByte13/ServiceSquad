@@ -12,32 +12,29 @@ function App() {
   useEffect(() => {
     fetch("/check_session").then((resp) => {
       if (resp.ok) {
-        resp.json().then ((user) => setUser(user))
+        resp.json().then((user) => setUser(user))
       }
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser}/>;
-
-  //fetch request GET
-
+  if (!user) return <Login onLogin={setUser} />;
 
   return (
     <>
-    <NavBar user={user} setUser={setUser} />
-    <main>
-      <Routes>
-        <Route path="/home">
-          <Home user={user}/>
-        </Route>
-        <Route path="/profile">
-          <Profile user={user}/>
-        </Route>
-        <Route path="/opportunities">
-          <Opportunities user={user}/>
-        </Route>
-      </Routes>
-    </main>
+      <NavBar user={user} setUser={setUser} />
+      <main>
+        <Routes>
+          <Route path="/home">
+            <Home user={user} />
+          </Route>
+          <Route path="/profile">
+            <Profile user={user} />
+          </Route>
+          <Route path="/opportunities">
+            <Opportunities user={user} />
+          </Route>
+        </Routes>
+      </main>
     </>
   )
 }
