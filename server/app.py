@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
 
-# Standard library imports
-
-# Remote library imports
 from flask import request
-from flask_restful import Resource
-
-# Local imports
+from flask_restful import Resource, make_response
 from config import app, db, api
-# Add your model imports
-
+from models import Volunteer, Organization, Opportunity
 
 # Views go here!
 
@@ -17,19 +11,30 @@ from config import app, db, api
 def index():
     return '<h1>Project Server</h1>'
 
-# class Opportunities(Resource):
-#     def get(self):
-#         opportunity = Opportunity.query.all()
-#         opportunity_list = opportunity.to_dict()
-#         return make_response(opportunity_list, 200)
+# Add CheckSession route
+# Add login/logout routes
+# Add before_request checkAuthorization
+# Add before_request checkIfLoggedIn
+# Add signup route with GET/POST
+# Add profile route with GET/PATCH/DELETE
 
-# class OpportunitiesById(Resource):
-#     def get(self, id):
-#         opportunity = Opportunities.query.filter_by(id=id).first()
-#         if opportunity:
-#             return make_response(opportunity.to_dict(), 200)
-#         else:
-#             return make_response({'error': 'Opportunity not found'}, 404)
+@app.route('/opportunities')
+class Opportunities(Resource):
+    def get(self):
+        opportunity = Opportunity.query.all()
+        opportunity_list = opportunity.to_dict()
+        return make_response(opportunity_list, 200)
+# add for opp in Opp in opportunity_list
+# add POST method
+
+class OpportunitiesById(Resource):
+    def get(self, id):
+        opportunity = Opportunities.query.filter_by(id=id).first()
+        if opportunity:
+            return make_response(opportunity.to_dict(), 200)
+        else:
+            return make_response({'error': 'Opportunity not found'}, 404)
+        # Maybe change to db.session.get(Opportunities, id)
 
 # class OpportunitiesRoute(Resource):
 #     def post(self):
@@ -64,8 +69,8 @@ def index():
 # api.add_resource(Profile, '/profile')
 # api/add_resource(Organization, '/organization')
 # api.add_resource(OrganizationById, '/organization/<int:id>')
-# api.add_resource(Opportunities, '/opportunities')
-# api.add_resource(OpportunitiesById, '/opportunities/<int:id>')
+api.add_resource(Opportunities, '/opportunities')
+api.add_resource(OpportunitiesById, '/opportunities/<int:id>')
 
 
 if __name__ == '__main__':
