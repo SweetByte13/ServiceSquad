@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-// import NavBar from "../components/NavBar";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "../components/NavBar";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Profile from "../pages/Profile";
+import Opportunities from "../pages/Opportunities";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -10,32 +12,29 @@ function App() {
   useEffect(() => {
     fetch("/check_session").then((resp) => {
       if (resp.ok) {
-        resp.json().then ((user) => setUser(user))
+        resp.json().then((user) => setUser(user))
       }
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser}/>;
-
-  //fetch request GET
-
+  if (!user) return <Login onLogin={setUser} />;
 
   return (
     <>
-    <NavBar user={user} setUser={setUser} />
-    <main>
-      <Switch>
-        <Route path="/home">
-          <Home user={user}/>
-        </Route>
-        <Route path="/profile">
-          <Profile user={user}/>
-        </Route>
-        <Route path="/opportunities">
-          <Opportunities user={user}/>
-        </Route>
-      </Switch>
-    </main>
+      <NavBar user={user} setUser={setUser} />
+      <main>
+        <Routes>
+          <Route path="/home">
+            <Home user={user} />
+          </Route>
+          <Route path="/profile">
+            <Profile user={user} />
+          </Route>
+          <Route path="/opportunities">
+            <Opportunities user={user} />
+          </Route>
+        </Routes>
+      </main>
     </>
   )
 }

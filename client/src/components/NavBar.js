@@ -2,34 +2,44 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
+import "../index.css"
+
 
 function NavBar({ user, setuser }) {
+  const navigate = useNavigate();
+
+  function handleLogInClick() {
+    navigate("/login")
+  }
 
   function handleLogoutClick() {
-    fetch ("/logout", {method: "DELETE"}).then((resp) => {
+    fetch("/logout", { method: "DELETE" }).then((resp) => {
       if (resp.ok) {
         setuser(null);
       }
     });
   }
+
   
     return (
-      <Wrapper>
-        <Navbar bg="light" data-bs-theme="light" fixed="top">
-          <Container>
-            <Navbar.Brand href="/">ServiceSquad</Navbar.Brand>
-              <Nav className="nav-bar">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="signup">Sign Up</Nav.Link>
-                <Nav.Link href="login">Log In</Nav.Link>
-                <Nav.Link href="profile">Profile</Nav.Link>
-                <Nav.Link href="opportunities">Opportunities</Nav.Link>
-                <Button onClick={handleLogoutClick}>Logout</Button>
-              </Nav>
-          </Container>
-        </Navbar>
-      </Wrapper>
-    )
-  };
+      <Navbar expand="lg" className="navbar" fixed="top">
+        <Container>
+          <Navbar.Brand href="/" className="nav-brand">ServiceSquad</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto pt-2">
+              <Nav.Link className="nav-link" href="opportunities">Opportunities</Nav.Link>
+              <Nav.Link className="nav-link" href="organizations">Organizations</Nav.Link>
+              <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>
+              <Nav.Link className="nav-link" href="signup">Signup</Nav.Link>
+            </Nav>
+           {user ? <Button onClick={handleLogoutClick}>Logout</Button> : <Button onClick={handleLogInClick}>Login</Button>}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    );
+  }
   
   export default NavBar;
