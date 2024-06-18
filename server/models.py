@@ -17,7 +17,8 @@ class Volunteer(db.Model, SerializerMixin):
     
     __tablename__ = 'volunteers'
     id=db.Column(db.Integer, primary_key=True)
-    name=db.Column(db.String, nullable=False)
+    first_name = db.Column(db.String, nullable = False)
+    last_name = db.Column(db.String, nullable = False)
     email=db.Column(db.String, nullable=False)
     phone_number= db.Column(db.Integer, nullable=False)
     username=db.Column(db.String, unique=True, nullable=False)
