@@ -16,7 +16,7 @@ function OpportunitiesContainer({user, opps}) {
 
     return (
     <div className="opps-container">
-        <Row className="opp-row">
+        <Row md={1} className="opp-row">
             {opportunity}
         </Row>
     </div>

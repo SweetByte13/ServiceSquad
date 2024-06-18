@@ -8,7 +8,6 @@ import Opportunities from "../pages/Opportunities";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [opps, setOpps] = useState([])
 
   useEffect(() => {
     fetch("/check_session").then((resp) => {
@@ -19,12 +18,6 @@ function App() {
   }, []);
 
   if (!user) return <Login onLogin={setUser} />;
-
-  useEffect(() => {
-    fetch("http://localhost:5555/oppurtunities")
-    .then((resp) => (resp.json()))
-    .then((opps) => setOpps(opps))
-  }, [])
 
   return (
     <>
@@ -38,7 +31,7 @@ function App() {
             <Profile user={user} />
           </Route>
           <Route path="/opportunities">
-            <Opportunities user={user} opps={opps}/>
+            <Opportunities user={user} />
           </Route>
         </Routes>
       </main>

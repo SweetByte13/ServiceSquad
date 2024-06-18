@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function OpportunityCard({opportunity}) {
-    const {title, description, remote_or_online, category, dates, duration, organization_id} = opportunity
+    const {title, description, remote_or_online, category, dates, duration, organization} = opportunity
     
     function handleApplyButton() {
         // write function
@@ -18,7 +18,7 @@ function OpportunityCard({opportunity}) {
           <Card.Text className="opp-category">{category}</Card.Text>
           <Card.Text className="opp-dates">{dates}</Card.Text>
           <Card.Text className="opp-duration">{duration}</Card.Text>
-          <Card.Text className="opp-organization_id">{organization_id.name}</Card.Text>
+          <Card.Text className="opp-organization_id">{organization.name}</Card.Text>
           <div className="buttons">
           <Button className="apply-button" onClick={() => handleApplyButton()}>Apply</Button>
           </div>
