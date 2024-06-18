@@ -1,15 +1,13 @@
 import React from "react";
 import HomeImageCarousel from "../components/HomeImageCarousel";
-import Header from "../components/Header";
-//import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 function Home() {
 
 
     return (
     <div>
-        <Header />
+        <NavBar />
         <HomeImageCarousel />
-    {/* //    <NavBar /> */}
         <div className="about">
             <h1 className="about-heading">
                 About ServiceSquad

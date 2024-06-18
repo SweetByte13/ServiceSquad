@@ -4,44 +4,45 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from "./components/App";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SignUpForm from "./components/SignUpForm";
+import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
-import OpportunitiesContainer from "./components/OpportunitiesContainer";
-import OpportunityDetails from "./components/OpportunityDetails";
-//import { createRoot } from "react-dom/client";
+import Opportunities from "./pages/Opportunities";
+import ErrorPage from './pages/ErrorPage';
 
 const routes = [
     {
         path:'/',
         element: <Home />,
+        errorElement: <ErrorPage />
     },
-    {
-        path: '/home',
-        element:<Home />
-    },
+    // {
+    //     path: '/home',
+    //     element:<Home />,
+    //     errorElement: <ErrorPage />
+    // },
     {
         path:'/login',
-        element: <Login />
+        element: <Login />,
+        errorElement: <ErrorPage />
     },
     {
         path:'/signup',
-        element: <SignUpForm />
+        element: <SignUp />,
+        errorElement: <ErrorPage />
     },
     {
         path:'/profile',
-        element: <Profile />
+        element: <Profile />,
+        errorElement: <ErrorPage />
     },
     {
         path:'/opportunities',
-        element: <OpportunitiesContainer />
+        element: <Opportunities />,
+        errorElement: <ErrorPage />
     },
-    {
-        path:'/opportunities/:id',
-        element: <OpportunityDetails />
-    },
+    
 
 ]
 
@@ -53,6 +54,3 @@ root.render(
         <RouterProvider router={router}/>
     </React.StrictMode>
 );
-//const container = document.getElementById("root");
-//const root = createRoot(container);
-//root.render(<App />);

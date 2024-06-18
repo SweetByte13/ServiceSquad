@@ -3,7 +3,7 @@ import React from "react";
 function OpportunitiesContainer() {
     return (
     <div>
-        <h1>This is the Opportunities Container.</h1>
+        <main>This is the Opportunities Container.</main>
     </div>
     )
 }

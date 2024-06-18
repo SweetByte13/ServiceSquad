@@ -2,9 +2,15 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import { useNavigate  } from "react-router-dom";
 
 function NavBar({ user, setuser }) {
+  const navigate = useNavigate();
+
+  function handleLogInClick() {
+    navigate("/login")
+  }
 
   function handleLogoutClick() {
     fetch ("/logout", {method: "DELETE"}).then((resp) => {
@@ -21,10 +27,9 @@ function NavBar({ user, setuser }) {
               <Nav className="nav-bar">
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="signup">Sign Up</Nav.Link>
-                <Nav.Link href="login">Log In</Nav.Link>
                 <Nav.Link href="profile">Profile</Nav.Link>
                 <Nav.Link href="opportunities">Opportunities</Nav.Link>
-                <Button onClick={handleLogoutClick}>Logout</Button>
+                {user ? <Button onClick={handleLogoutClick}>Logout</Button> : <Button onClick={handleLogInClick}>Login</Button>}
               </Nav>
           </Container>
         </Navbar>
