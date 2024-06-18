@@ -2,11 +2,11 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import OpportunitiesContainer from "../components/OpportunitiesContainer";
 
-function Opportunities() {
+function Opportunities({user, opps}) {
     return (
         <div>
             <NavBar />
-            <OpportunitiesContainer />
+            <OpportunitiesContainer user={user} opps={opps}/>
         </div>
     )
 }

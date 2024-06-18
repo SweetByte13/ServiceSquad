@@ -9,40 +9,42 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import Opportunities from "./pages/Opportunities";
+import Organizations from "./pages/Organizations"
 import ErrorPage from './pages/ErrorPage';
 
 const routes = [
     {
-        path:'/',
+        path: '/',
         element: <Home />,
         errorElement: <ErrorPage />
     },
-    // {
-    //     path: '/home',
-    //     element:<Home />,
-    //     errorElement: <ErrorPage />
-    // },
     {
-        path:'/login',
+        path: '/login',
         element: <Login />,
         errorElement: <ErrorPage />
     },
     {
-        path:'/signup',
+        path: '/signup',
         element: <SignUp />,
         errorElement: <ErrorPage />
     },
     {
-        path:'/profile',
+        path: '/profile',
         element: <Profile />,
         errorElement: <ErrorPage />
     },
     {
-        path:'/opportunities',
+        path: '/opportunities',
         element: <Opportunities />,
         errorElement: <ErrorPage />
     },
-    
+    {
+        path: '/organizations',
+        element: <Organizations />,
+        errorElement: <ErrorPage />
+    },
+
+
 
 ]
 
@@ -51,6 +53,6 @@ const router = createBrowserRouter(routes)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router}/>
+        <RouterProvider router={router} />
     </React.StrictMode>
 );

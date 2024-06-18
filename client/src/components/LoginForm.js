@@ -4,19 +4,11 @@ import { Button, Container } from '@mui/material';
 import * as yup from 'yup';
 
 function LoginForm({ onLogin, setUser }) {
-
-    const [login, setLogin] = useState(true)
-
-
+    
     let LoginSchema = yup.object().shape({
         username: yup.string().required('username required').min(6),
         password_hash: yup.string().required('password required').min(8)
     })
-
-    function toggleLogin() {
-        setLogin((currentLogin) => !currentLogin)
-    }
-
 
     const handleSubmit = (values) => {
         console.log("form submitted")
@@ -40,19 +32,6 @@ function LoginForm({ onLogin, setUser }) {
         password_hash: ''
     }
 
-    // const [loginData, setLoginData] = useState(initialValues);
-
-    // const { values: { username, password_hash } } = e.target
-    // setLoginData((currentLoginData) => {
-    //     return {
-    //         ...currentLoginData,
-    //         [username]: value,
-    //         [password_hash]: value,
-    //     }
-    // });
-
-
-    // do we need double {} for the initialValues?
     return (
         <Container>
             <Formik
