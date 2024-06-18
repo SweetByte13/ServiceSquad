@@ -10,12 +10,17 @@ import SignUpForm from "./components/SignUpForm";
 import Profile from "./pages/Profile";
 import OpportunitiesContainer from "./components/OpportunitiesContainer";
 import OpportunityDetails from "./components/OpportunityDetails";
+import Home from "./pages/Home";
 //import { createRoot } from "react-dom/client";
 
 const routes = [
     {
         path:'/',
-        element: <App />,
+        element: <Home />,
+    },
+    {
+        path:'/home',
+        element: <Home />,
     },
     {
         path:'/login',
