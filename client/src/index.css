@@ -1,14 +1,18 @@
-:root {
-  --bg: #282c34;
-  --header: #fff;
+/* :root {
+  --bg-color: #fae6b1;
+  /* --header: #31525b;
   --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
+  --text: #31525b(0, 0%, 100%, 0.88); */
+
+
+body {
+  background-color: #fae6b1 !important;
+  
 }
+
 
 .carousel-container {
   position: relative;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .carousel-image {
@@ -19,33 +23,97 @@
 
 .overlay {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 40%;
+  /* margin-right: 10%; */
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-  color: white;
+  color: #f7eac6;
+  font-family: Verdana;
   text-align: left;
   z-index: 1;
 }
 
-.button-start {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #ded369;
+.button {
+  margin-top: 5px;
+  margin-left: 5px;
+  padding: 5px 10px;
+  background-color: #ffa101;
   border: none;
   border-radius: 5px;
-  color: white;
+  color: #31525b;
   cursor: pointer;
 }
 
 .about {
-  margin-left: 10px;
-  margin-right: 10px;
+  /* display: flex; */
+  margin-left: 0vw;
+  padding-left: 5vw;
+  justify-content: left;
+  align-items: center;
+  font-weight: light;
+  font-family: Verdana;
+  color: #31525b;
+  font-size: 30px;
+  /* height: 100%; */
+  background-color: #b3dee5;
 }
 
 .about-heading {
-  background-color: #e0475b;
+  background-color: #b3dee5;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 20px;
+}
+
+.left-div {
+  flex: 0 0 60%;
+  padding: 10px;
+  margin-top: 10px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.right-div {
+  flex: 0 0 40%;
+  margin-top: 20px;
+  padding: 10px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.navbar {
+  background-color: #b3dee5;
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
+
+.nav-link {
+  color: #31525b !important;
+  
+}
+.nav-brand {
+  color: #31525b !important;
+}
+
+.p-2 {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-left: 20px;
+  border: solid;
+  border-radius: 5px;
+  background-color: #ffa101;
+  color:#31525b;
+}
+
+
 
