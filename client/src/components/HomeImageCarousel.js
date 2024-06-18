@@ -1,4 +1,5 @@
 import React from "react"; 
+import { useNavigate } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 //import Button from "react-bootstrap/Button";
 import Image1 from "../assets/Image1.jpg";
@@ -6,7 +7,15 @@ import Image2 from "../assets/Image2.jpg";
 import Image3 from "../assets/Image3.jpg";
 import Image4 from "../assets/Image4.jpg";
 
+
 function HomeImageCarousel() {
+    
+    const navigate = useNavigate();
+
+    function handleGetStarted() {
+        navigate("/signup")
+      }
+
   return (
     <div className="carousel-container">
         <Carousel>
@@ -50,7 +59,7 @@ function HomeImageCarousel() {
             <h4>
                 ServiceSquad connects you to service opportunities right within your own community.
             </h4>
-            <button className="button">Get Started</button>
+            <button className="button" onClick={handleGetStarted}>Get Started</button>
         </div>
     </div>
   );
