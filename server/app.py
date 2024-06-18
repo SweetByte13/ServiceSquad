@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from flask import request, session
-from flask_restful import Resource, make_response
+from flask import request, session, make_response
+from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
 from config import app, db, api
 from models import Volunteer, Organization, Opportunity
@@ -214,7 +214,7 @@ api.add_resource(Logout, '/logout', endpoint='logout')
 api.add_resource(Opportunities, '/opportunities')
 api.add_resource(OpportunitiesById, '/opportunities/<int:id>')
 api.add_resource(Profile, '/profile')
-api.add_resource(Organization, '/organization')
+api.add_resource(Organizations, '/organization')
 api.add_resource(OrganizationById, '/organization/<int:id>')
 
 if __name__ == '__main__':

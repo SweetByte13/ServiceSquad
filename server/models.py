@@ -1,7 +1,7 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates
-from flask.ext.bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 
 from config import db, app
 bcrypt = Bcrypt(app)
@@ -28,7 +28,7 @@ class Volunteer(db.Model, SerializerMixin):
     zipcode=db.Column(db.Integer)
 
     opportunities = db.relationship('Opportunity', back_populates='pizza', cascade='all, delete-orphan')
-    organizations = db.association_proxy('opportunities', 'organization')
+    organizations = association_proxy('opportunities', 'organization')
     
     def __repr__(self):
         return f"<Volunteer {self.id}: {self.name}, {self.username}, {self.email}, {self.phone_number}, {self.interests}, {self.skills}, {self.hours_wanted}, {self.zipcode}>"
@@ -100,7 +100,7 @@ class Organization(db.Model, SerializerMixin):
     category=db.Column(db.String)
 
     opportunities = db.relationship('Opportunity', back_populates='organization', cascade='all, delete-orphan')
-    volunteers=db.association_proxy('opportunities', 'volunteer')
+    volunteers=association_proxy('opportunities', 'volunteer')
 
     def __repr__(self):
         return f"<Organization {self.id}: {self.name}, {self.website}, {self.category}> "
@@ -117,8 +117,8 @@ class Opportunity(db.Model, SerializerMixin):
     category=db.Column(db.String, nullable=False)
     dates=db.Column(db.String)
     duration=db.Column(db.String)
-    organization_id=db.Column(db.Integer, nullable=False, ForeignKey=('organization.id'))
-    volunteer_id=db.Column(db.Integer, ForeignKey=('volunteer.id'))
+    organization_id=db.Column(db.Integer, db.ForeignKey('organizations.id'), nullable=False)
+    volunteer_id=db.Column(db.Integer, db.ForeignKey('volunteer.id'))
 
     volunteer = db.relationship('Volunteer', back_populates='volunteers')
     organization = db.relationship('Organization', back_populates='organizations')
