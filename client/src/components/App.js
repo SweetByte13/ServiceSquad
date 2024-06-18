@@ -10,7 +10,9 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/check_session").then((resp) => {
+    fetch("https://www.volunteerconnector.org/api/search/")
+    // makes GET response to API to get info on orgs - returned data stored in User state with setUser function
+    .then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user))
       }
@@ -19,6 +21,7 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
+  // routing approach with React-Router - different routes rendered based on corresponding URL
   return (
     <>
       <NavBar user={user} setUser={setUser} />
@@ -28,15 +31,15 @@ function App() {
             <Home user={user} />
           </Route>
           <Route path="/profile">
-            <Profile user={user} />
-          </Route>
-          <Route path="/opportunities">
-            <Opportunities user={user} />
-          </Route>
-        </Routes>
-      </main>
-    </>
-  )
+            {user ? <Profile user={user} /> : <ErrorComponent message="User not logged in" />}
+        </Route>
+        <Route path="/opportunities">
+            {user ? <Opportunities user={user} /> : <ErrorComponent message="User not logged in" />}
+        </Route>
+      </Routes>
+    </main>
+  </>
+);
 }
 
 export default App;
