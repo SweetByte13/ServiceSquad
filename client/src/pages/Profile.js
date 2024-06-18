@@ -1,12 +1,16 @@
 import React from "react";
+import NavBar from "../components/NavBar"
 
 
 function Profile() {
     return (
-    <div>
-        <h1>This is the Profile.</h1>
-        
-    </div>
+        <div>
+            <NavBar />
+            <br></br>
+            <body>
+                <p>This is the Profile.</p>
+            </body>
+        </div>
     )
 }
 
