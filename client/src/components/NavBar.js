@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.jpeg"
 import "../index.css"
 
 
@@ -26,7 +27,14 @@ function NavBar({ user, setuser }) {
     return (
       <Navbar expand="lg" className="navbar" fixed="top">
         <Container>
-          <Navbar.Brand href="/" className="nav-brand">ServiceSquad</Navbar.Brand>
+          <Navbar.Brand href="/" className="nav-brand">
+            <img 
+              src={logo}
+              width="30"
+              height="30"
+              alt="logo"
+            />  ServiceSquad
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto pt-2">
