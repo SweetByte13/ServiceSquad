@@ -10,9 +10,8 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("https://www.volunteerconnector.org/api/search/")
-    // makes GET response to API to get info on orgs - returned data stored in User state with setUser function
-    .then((resp) => {
+    fetch('/check_session')
+    .then(resp => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user))
       }
