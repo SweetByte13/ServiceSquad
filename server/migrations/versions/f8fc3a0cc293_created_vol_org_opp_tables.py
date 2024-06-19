@@ -1,8 +1,8 @@
 """created vol, org, opp tables
 
-Revision ID: 0278682f5d49
+Revision ID: f8fc3a0cc293
 Revises: 
-Create Date: 2024-06-19 07:28:21.818157
+Create Date: 2024-06-19 13:12:16.376803
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0278682f5d49'
+revision = 'f8fc3a0cc293'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,15 +31,16 @@ def upgrade():
     sa.Column('first_name', sa.String(), nullable=False),
     sa.Column('last_name', sa.String(), nullable=False),
     sa.Column('email', sa.String(), nullable=False),
-    sa.Column('phone_number', sa.Integer(), nullable=False),
+    sa.Column('phone_number', sa.String(), nullable=False),
     sa.Column('username', sa.String(), nullable=False),
     sa.Column('_password_hash', sa.String(), nullable=False),
     sa.Column('interests', sa.String(), nullable=True),
     sa.Column('skills', sa.String(), nullable=True),
     sa.Column('hours_wanted', sa.Integer(), nullable=True),
     sa.Column('zipcode', sa.Integer(), nullable=True),
+    sa.CheckConstraint('length(phone_number) = 10 or length(phone_number) = 15', name=op.f('ck_volunteers_phone_number_length_ten')),
+    sa.CheckConstraint('length(username) > 6', name=op.f('ck_volunteers_username_length_over_six')),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_volunteers')),
-    sa.UniqueConstraint('_password_hash', name=op.f('uq_volunteers__password_hash')),
     sa.UniqueConstraint('username', name=op.f('uq_volunteers_username'))
     )
     op.create_table('opportunities',
