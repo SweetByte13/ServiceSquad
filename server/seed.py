@@ -5,22 +5,16 @@ from faker import Faker
 import requests
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from config import db, app
+from models import Opportunity
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = '<your_database_uri>'
-db = SQLAlchemy(app)
-
-class Volunteer(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100))
-    email = db.Column(db.String(100))
 
 @app.cli.command('seed_db')
 def seed_db():
     print("Starting seed...")
 
     # Make a request to the Volunteer Connector API
-    response = requests.get('https://www.volunteerconnector.org/api/search/')
+    response = request.get('https://www.volunteerconnector.org/api/search/')
     if response.status_code == 200:
         data = response.json()
     else:
