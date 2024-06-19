@@ -3,10 +3,6 @@ import NavBar from "../components/NavBar";
 import Search from "../components/Search";
 import OrganizationContainer from "../components/OrganizationContainer";
 
-// after the filter is working, remove script-sever from package.json
-//delete db.json file
-//reinstall
-//adjust fetch url
 
 function Organizations() {
 

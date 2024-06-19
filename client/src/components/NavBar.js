@@ -43,7 +43,7 @@ function NavBar({ user, setuser }) {
               <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>
               <Nav.Link className="nav-link" href="signup">Signup</Nav.Link>
             </Nav>
-           {user ? <Button className="login-btn" onClick={handleLogoutClick}>Logout</Button> : <Button className="login-btn" onClick={handleLogInClick}>Login</Button>}
+           {user ? <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button> : <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button>}
           </Navbar.Collapse>
         </Container>
       </Navbar>

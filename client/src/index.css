@@ -67,7 +67,7 @@ body {
 
 
 /* NAVBAR */
-.login-btn {
+.navbar-login-btn {
   margin-top: 5px !important;
   margin-left: 5px !important;
   padding: 5px 10px !important;
@@ -143,9 +143,7 @@ body {
 }
 
 
-.signup-container {
-  margin-top: 150px
-}/* OPPORTUNITIES */
+/* OPPORTUNITIES */
 .opp-org-header { 
   margin-left: 50px;
   margin-top: 40px;
@@ -256,6 +254,60 @@ body {
 
 
 /* SIGNUP */
-
+.signup-container {
+  margin-top: 150px
+}
 
 /* LOGIN */
+.login-form {
+  margin-left: 10%;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  /* position: relative; */
+}
+
+.login-header {
+  margin-left: 50px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-top: 40px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+
+.signup-loginpage {
+  margin-left: 50px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.signup-button-loginpage {
+  margin-left: 5px !important;
+  background-color: #ffa101 !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: #31525b !important;
+  cursor: pointer !important;
+  font-family: Verdana;
+}
+
+.mb-3 {
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.login-button {
+  margin-top: 5px !important;
+  margin-left: 5px !important;
+  padding: 5px 10px !important;
+  background-color: #ffa101 !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: #31525b !important;
+  cursor: pointer !important;
+}
