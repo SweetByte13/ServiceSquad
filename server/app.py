@@ -6,6 +6,7 @@ from sqlalchemy.exc import IntegrityError
 from config import app, db, api
 from models import Volunteer, Organization, Opportunity
 
+
 @app.before_request
 def check_log_statues():
     open_access_list = [
@@ -55,7 +56,8 @@ class Signup(Resource):
         
         username = params.get('username')
         password = params.get('password')
-        name = params.get('name')
+        first_name = params.get('first_name')
+        last_name= params.get('last_name')
         email = params.get('email')
         phone_number = params.get('phone_number')
         interests = params.get('interests')
@@ -65,7 +67,8 @@ class Signup(Resource):
         
         volunteer = Volunteer(
             username = username,
-            name = name,
+            first_name = first_name,
+            last_name = last_name,
             email = email,
             phone_number = phone_number,
             interests = interests,

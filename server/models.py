@@ -8,31 +8,31 @@ bcrypt = Bcrypt(app)
 
 # Models basics. HAVE NOT CREATED A DATABASE YET! 6/14
 class Volunteer(db.Model, SerializerMixin):
+    __tablename__ = 'volunteers'
     
     serialize_rules = ('-_password_hash',)
     
-    __table_arg__ = (
-        db.CheckConstraint('length(username) > 6', name='username_length_over_six'), db.CheckConstraint('length(phone_number) = 10 or len(phone_number) = 15', name='phone_number_length_ten'),
+    __table_args__ = (
+        db.CheckConstraint('length(username) > 6', name='username_length_over_six'), db.CheckConstraint('length(phone_number) = 10 or length(phone_number) = 15', name='phone_number_length_ten'),
     ) 
     
-    __tablename__ = 'volunteers'
     id=db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable = False)
     last_name = db.Column(db.String, nullable = False)
     email=db.Column(db.String, nullable=False)
-    phone_number= db.Column(db.Integer, nullable=False)
+    phone_number= db.Column(db.String, nullable=False)
     username=db.Column(db.String, unique=True, nullable=False)
-    _password_hash=db.Column(db.String, unique=True, nullable=False)
+    _password_hash=db.Column(db.String, nullable=False)
     interests=db.Column(db.String)
     skills=db.Column(db.String)
     hours_wanted=db.Column(db.Integer)
     zipcode=db.Column(db.Integer)
 
-    opportunities = db.relationship('Opportunity', back_populates='pizza', cascade='all, delete-orphan')
+    opportunities = db.relationship('Opportunity', back_populates='volunteer', cascade='all, delete-orphan')
     organizations = association_proxy('opportunities', 'organization')
     
     def __repr__(self):
-        return f"<Volunteer {self.id}: {self.name}, {self.username}, {self.email}, {self.phone_number}, {self.interests}, {self.skills}, {self.hours_wanted}, {self.zipcode}>"
+        return f"<Volunteer {self.id}: {self.first_name}{self.last_name},{self.username}, {self.email}, {self.phone_number}, {self.interests}, {self.skills}, {self.hours_wanted}, {self.zipcode}>"
     
     @property 
     def password_hash(self):
@@ -45,11 +45,17 @@ class Volunteer(db.Model, SerializerMixin):
     def authenticate(self, password):
         return bcrypt.check_password_hash(self._password_hash, password)
     
-    @validates('name')
-    def validates_name(self, key, new_name):
-        if not new_name:
+    @validates('first_name')
+    def validates_first_name(self, key, new_f_name):
+        if not new_f_name:
             raise ValueError("Name is required")
-        return new_name
+        return new_f_name
+    
+    @validates('last_name')
+    def validates_last_name(self, key, new_l_name):
+        if not new_l_name:
+            raise ValueError("Family name is required")
+        return new_l_name
     
     @validates('email')    
     def validates_email(self, key, new_email):
@@ -65,7 +71,7 @@ class Volunteer(db.Model, SerializerMixin):
     def validates_phone_number(self, key, new_phone_number):
         if not new_phone_number:
             raise ValueError("Phone number is required")
-        if len(new_phone_number) != 10 or len(new_phone_number) != 15:
+        if not (len(new_phone_number) == 10 or len(new_phone_number) == 12 or len(new_phone_number) == 15):
             raise ValueError("Must be a valid phone number")
         return new_phone_number
     
@@ -93,8 +99,8 @@ class Volunteer(db.Model, SerializerMixin):
         return new_password
 
 class Organization(db.Model, SerializerMixin):
-
     __tablename__= 'organizations'
+
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String, unique=True, nullable=False)
     website=db.Column(db.String)
@@ -106,11 +112,15 @@ class Organization(db.Model, SerializerMixin):
     def __repr__(self):
         return f"<Organization {self.id}: {self.name}, {self.website}, {self.category}> "
     
-    #validates: unique name, needs name: 
+    @validates('name')
+    def validates_name(self, key, new_name):
+        if not new_name:
+            raise ValueError("Name is required")
+        return new_name
 
 class Opportunity(db.Model, SerializerMixin):
-    
     __tablename__= "opportunities"
+    
     id=db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String, nullable=False)
     description=db.Column(db.String, nullable=False)
@@ -121,8 +131,8 @@ class Opportunity(db.Model, SerializerMixin):
     organization_id=db.Column(db.Integer, db.ForeignKey('organizations.id'), nullable=False)
     volunteer_id=db.Column(db.Integer, db.ForeignKey('volunteers.id'))
 
-    volunteer = db.relationship('Volunteer', back_populates='volunteers')
-    organization = db.relationship('Organization', back_populates='organizations')
+    volunteer = db.relationship('Volunteer', back_populates='opportunities')
+    organization = db.relationship('Organization', back_populates='opportunities')
     
     def __repr__(self):
         return f"<Opportunity {self.id}: {self.title}, {self.description}, remote:{self.remote_or_online}, {self.category}, {self.dates}, {self.duration}>"
