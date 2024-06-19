@@ -36,23 +36,25 @@ function SignUpForm({ setUser }) {
         })
     }
 
+    let initialValues={ 
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        username: '', 
+        password: '', 
+        passwordConfirmation: '',
+        zipCode: '',
+        interests: '',
+        skills: '',
+        hoursWanted: ''
+    }
+
     return (
         <Container className="signup-container">
             <Formik
-                initialValues={{ 
-                    firstName: '',
-                    lastName: '',
-                    email: '',
-                    phoneNumber: '',
-                    username: '', 
-                    password: '', 
-                    passwordConfirmation: '',
-                    zipCode: '',
-                    interests: '',
-                    skills: '',
-                    hoursWanted: ''
-                }}
-                // validationSchema={signup ? signupSchema : loginSchema}
+                initialValues={initialValues}
+                validationSchema={signupSchema}
                 onSubmit={handleSubmit}
             >
                 {({handleSubmit, values, handleChange}) => (
