@@ -63,7 +63,7 @@ function SignUpForm({ setUser }) {
     return (
         <Container className="signup-container">
             <Formik
-                initalValues = {initialValues}
+                initalValues={initialValues}
                 validationSchema={signupSchema}
                 onSubmit={handleSubmit}
             >
