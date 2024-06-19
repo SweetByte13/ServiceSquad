@@ -11,8 +11,7 @@ function SignUpForm({ setUser }) {
         firstName: yup.string().min(1, 'First name too short!').max(15, 'First name too long!'),
         lastName: yup.string().min(1, 'Last name too short!').max(15, 'Last name too long!'),
         email: yup.string().min(1, 'Email too short!').max(25, 'Email too long!'),
-        phoneNumber: yup.string().min(10, 'Phone number too short!').max(11, 'Phone number too long!'),
-        // phone: 10 digits for area code in US, max set to catch error if they enter an extra number?
+        phoneNumber: yup.string().min(10, 'Phone number too short!').max(17, 'Phone number too long!'),
         username: yup.string().min(5, 'Username too short!').max(15, 'Username too long!'),
         password: yup.string().min(5,'Password too short!').max(15, 'Password too long!'),
         passwordConfirmation: yup.string().oneOf([yup.ref('password')], 'Passwords must match!'),
@@ -20,7 +19,6 @@ function SignUpForm({ setUser }) {
         interests: yup.string().required('Interest is required!'),
         skills: yup.string().required('Skills are required!'),
         hoursWanted: yup.number().integer().min(1, 'Minimum of 1 hour required!'),
-        // no max set on number of hours wanted?
     })
 
     function toggleSignup() {
