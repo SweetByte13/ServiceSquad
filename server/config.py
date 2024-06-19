@@ -30,3 +30,5 @@ db.init_app(app)
 api = Api(app)
 
 CORS(app)
+
+app.secret_key=b'`G\xb8\x10\x08\x1f\x10\xbb\x01\xfbz\xf0\x0blT\x0c'

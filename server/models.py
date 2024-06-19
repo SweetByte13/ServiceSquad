@@ -71,7 +71,7 @@ class Volunteer(db.Model, SerializerMixin):
     def validates_phone_number(self, key, new_phone_number):
         if not new_phone_number:
             raise ValueError("Phone number is required")
-        if not (len(new_phone_number) == 10 or len(new_phone_number) == 12 or len(new_phone_number) == 15):
+        if not (len(new_phone_number) == 10 or len(new_phone_number) == 12 or len(new_phone_number) == 15 or len(new_phone_number) == 17):
             raise ValueError("Must be a valid phone number")
         return new_phone_number
     
@@ -81,7 +81,7 @@ class Volunteer(db.Model, SerializerMixin):
             raise ValueError("Username is required")
         if len(new_username) < 6:
             raise ValueError("Username must be longer than 6 characters")
-        if new_username == Volunteer.username:
+        if Volunteer.query.filter_by(username=new_username).first():
             raise ValueError("Username must be unique")
         return new_username
         
@@ -120,6 +120,8 @@ class Organization(db.Model, SerializerMixin):
 
 class Opportunity(db.Model, SerializerMixin):
     __tablename__= "opportunities"
+    
+    serialize_rules = ('-organization.opportunities', '-volunteer.opportunities',)
     
     id=db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String, nullable=False)
