@@ -33,9 +33,9 @@ const signupSchema = yup.object().shape({
 
     
 
-    <Formik
-        initalValues={initialValues}
-        validationSchema={signupSchema}
-        onSubmit={handleSubmit}
-    >
+    // <Formik
+    //     initalValues={initialValues}
+    //     validationSchema={signupSchema}
+    //     onSubmit={handleSubmit}
+    // >
     
