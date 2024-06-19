@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { Formik } from 'formik';
 import * as yup from 'yup'
+import { Container } from '@mui/material';
 
 
 function SignUpForm({ setUser }) {
@@ -36,7 +37,7 @@ function SignUpForm({ setUser }) {
     }
 
     return (
-        <Container>
+        <Container className="signup-container">
             <Formik
                 initialValues={{ 
                     firstName: '',
@@ -51,7 +52,7 @@ function SignUpForm({ setUser }) {
                     skills: '',
                     hoursWanted: ''
                 }}
-                validationSchema={signup ? signupSchema : loginSchema}
+                // validationSchema={signup ? signupSchema : loginSchema}
                 onSubmit={handleSubmit}
             >
                 {({handleSubmit, values, handleChange}) => (

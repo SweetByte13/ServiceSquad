@@ -10,19 +10,25 @@ function OpportunityCard({opportunity}) {
     }
 
     return (
-        <Card style={{ width: '18rem' }} className="opp-card">
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text className="opp-description">{description}</Card.Text>
-          <Card.Text className="opp-remote_or_online">{remote_or_online}</Card.Text>
-          <Card.Text className="opp-category">{category}</Card.Text>
-          <Card.Text className="opp-dates">{dates}</Card.Text>
-          <Card.Text className="opp-duration">{duration}</Card.Text>
-          <Card.Text className="opp-organization_id">{organization.name}</Card.Text>
-          <div className="buttons">
-          <Button className="apply-button" onClick={() => handleApplyButton()}>Apply</Button>
-          </div>
-        </Card.Body>
+      <Card className="opp-card">
+        <Card.Header className="card-header" as="h5">{organization.name}</Card.Header>
+        <div className="oppcard-text">
+          <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text className="opp-description">{description}</Card.Text>
+            <Card.Text className="opp-remote_or_online">Location: {remote_or_online}</Card.Text>
+            <Card.Text className="opp-category">Type: {category}</Card.Text>
+            <Card.Text className="opp-dates">Date Range: {dates}</Card.Text>
+            <Card.Text className="opp-duration">Committment: {duration}</Card.Text>
+            <div className="buttons">
+              <Button className="apply-button" onClick={() => handleApplyButton()}>Apply</Button>
+            </div>
+          </Card.Body>
+        </div>
+        <div className="oppcard-img">
+          <Card.Img className="card-logo"  src="https://shareomaha.org/sites/default/files/alzstacked_rgb.jpg"/>
+          {/* add props from api fetch- image source */}
+        </div>
       </Card>
     )
 }
