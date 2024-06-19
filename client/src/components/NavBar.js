@@ -15,12 +15,17 @@ function NavBar({ user, setuser }) {
     navigate("/login")
   }
 
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((resp) => {
       if (resp.ok) {
         setuser(null);
       }
     });
+  }
+
+  function handleAboutClick() {
+    navigate("/#about")
   }
 
   
@@ -38,6 +43,7 @@ function NavBar({ user, setuser }) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto pt-2">
+              <Nav.Link className="nav-link" href="#about" onClick={handleAboutClick}>About</Nav.Link>
               <Nav.Link className="nav-link" href="opportunities">Opportunities</Nav.Link>
               <Nav.Link className="nav-link" href="organizations">Organizations</Nav.Link>
               <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>

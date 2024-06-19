@@ -49,6 +49,8 @@ body {
   cursor: pointer;
 }
 
+
+/* ABOUT */
 .about {
   margin-left: 0vw;
   padding-left: 5vw;
@@ -63,6 +65,47 @@ body {
 
 .about-heading {
   background-color: #b3dee5;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 20px;
+}
+
+.right-div-header {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.right-div {
+  flex: 0 0 40%;
+  margin-top: 20px;
+  padding: 10px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.left-div {
+  flex: 0 0 60%;
+  padding: 10px;
+  margin-top: 10px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.right-div-stack {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 20px;
+  border: solid;
+  border-radius: 5px;
+  background-color: #ffa101;
+  color:#31525b;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
 }
 
 
@@ -105,41 +148,6 @@ body {
 
 .nav-brand {
   color: #31525b !important;
-}
-
-
-/* ABOUT */
-.container {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  gap: 20px;
-}
-
-.left-div {
-  flex: 0 0 60%;
-  padding: 10px;
-  margin-top: 10px;
-  color: #31525b;
-  font-family: Verdana;
-}
-
-.right-div {
-  flex: 0 0 40%;
-  margin-top: 20px;
-  padding: 10px;
-  color: #31525b;
-  font-family: Verdana;
-}
-
-.p-2 {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-left: 20px;
-  padding-left: 20px;
-  border: solid;
-  border-radius: 5px;
-  background-color: #ffa101;
-  color:#31525b;
 }
 
 
@@ -208,6 +216,14 @@ body {
   margin-left: 50px;
   display: flex;
   flex-direction: row;
+  font-family: Verdana;
+  font-weight: 600;
+  color: #31525b;
+}
+
+.select {
+  font-family: Verdana;
+  color: #31525b;
 }
 
 .filter{
@@ -248,7 +264,16 @@ body {
 
 .searchlabel {
   margin-right: 8px;
+  font-family: Verdana;
+  color: #31525b;
+  font-weight: 600;
 }
+
+.searchinput {
+  font-family: Verdana;
+  color: #31525b;
+}
+
 
 /* PROFILE */
 
@@ -310,4 +335,12 @@ body {
   border-radius: 5px !important;
   color: #31525b !important;
   cursor: pointer !important;
+}
+
+.footer {
+  background-color: #ffa101;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 20px;
 }
