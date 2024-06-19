@@ -8,7 +8,7 @@ from models import Volunteer, Organization, Opportunity
 
 
 @app.before_request
-def check_log_statues():
+def check_log_status():
     open_access_list = [
         'signup',
         'login',

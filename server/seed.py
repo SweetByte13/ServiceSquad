@@ -7,28 +7,29 @@ from flask_sqlalchemy import SQLAlchemy
 from config import db, app
 from models import Opportunity
 
-@app.cli.command('seed_db')
-def seed_db():
-    print("Starting seed...")
+# @app.cli.command('seed_db')
+# def seed_db():
+#     print("Starting seed...")
 
-    # Make a request to the Volunteer Connector API
-    response = request.get('https://www.volunteerconnector.org/api/search/')
-    if response.status_code == 200:
-        data = response.json()
-    else:
-        print("Failed to retrieve data from the API")
-        exit(1)
+#     # Make a request to the Volunteer Connector API
+#     response = request.get('https://www.volunteerconnector.org/api/search/')
+#     if response.status_code == 200:
+#         data = response.json()
+#     else:
+#         print("Failed to retrieve data from the API")
+#         exit(1)
 
-    # Seed the database with the retrieved data
-    for item in data:
-        opportunity = Opportunity(organization_name=item['organization_name'], organization_email=item['organization_email'])
-        db.session.add(opportunity)
-        db.session.commit()
+#     # Seed the database with the retrieved data
+#     for item in data:
+#         opportunity = Opportunity(organization_name=item['organization_name'], organization_email=item['organization_email'])
+#         db.session.add(opportunity)
+#         db.session.commit()
 
-    print("Seeding completed successfully!")
+#     print("Seeding completed successfully!")
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
+
 
 
 
