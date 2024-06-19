@@ -1,7 +1,6 @@
 import React from "react"; 
 import { useNavigate } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
-//import Button from "react-bootstrap/Button";
 import Image1 from "../assets/Image1.jpg";
 import Image2 from "../assets/Image2.jpg";
 import Image3 from "../assets/Image3.jpg";
@@ -25,10 +24,6 @@ function HomeImageCarousel() {
                     src={Image1}
                     alt="First slide"
                 />
-        {/* <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption> */}
             </Carousel.Item>
             <Carousel.Item interval={3000}>
                 <img

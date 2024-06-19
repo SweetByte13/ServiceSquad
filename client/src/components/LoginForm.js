@@ -58,7 +58,7 @@ function LoginForm({ onLogin, setUser }) {
                             value={values.password_hash}
                             onChange={handleChange}
                         />
-                        <Button type="submit">Submit</Button>
+                        <Button className="button" type="submit">Submit</Button>
                     </form>
                 )}
 

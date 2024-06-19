@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import NavBar from "../components/NavBar";
 import OpportunitiesContainer from "../components/OpportunitiesContainer";
+import OppDropdownFilter from "../components/OppDropdownFilter";
 
 function Opportunities({ user }) {
     const [opps, setOpps] = useState([])
@@ -41,6 +42,8 @@ function Opportunities({ user }) {
         <div>
             <NavBar />
             <main>
+                <h1 className="opp-org-header">Service Opportunities</h1>
+                <OppDropdownFilter />
                 <OpportunitiesContainer user={user} opps={opps} />
             </main>
         </div>
