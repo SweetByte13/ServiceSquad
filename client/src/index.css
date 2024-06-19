@@ -143,7 +143,9 @@ body {
 }
 
 
-/* OPPORTUNITIES */
+.signup-container {
+  margin-top: 150px
+}/* OPPORTUNITIES */
 .opp-org-header { 
   margin-left: 50px;
   margin-top: 40px;
