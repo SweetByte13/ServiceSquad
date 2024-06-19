@@ -119,7 +119,7 @@ class Opportunity(db.Model, SerializerMixin):
     dates=db.Column(db.String)
     duration=db.Column(db.String)
     organization_id=db.Column(db.Integer, db.ForeignKey('organizations.id'), nullable=False)
-    volunteer_id=db.Column(db.Integer, db.ForeignKey('volunteer.id'))
+    volunteer_id=db.Column(db.Integer, db.ForeignKey('volunteers.id'))
 
     volunteer = db.relationship('Volunteer', back_populates='volunteers')
     organization = db.relationship('Organization', back_populates='organizations')
