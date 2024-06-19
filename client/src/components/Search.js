@@ -1,9 +1,9 @@
 import React from "react";
 
 function Search({setSearchOrg, searchOrg}) {
+function Search({setSearchOrg, searchOrg}) {
     return (
         <div className="searchbar">
-            {/* <h1>search</h1> */}
             <label className="searchlabel" htmlFor="search">Search by Organization:</label>
             
             <input 
@@ -16,5 +16,4 @@ function Search({setSearchOrg, searchOrg}) {
         </div>
     )
 }
-
 export default Search;
