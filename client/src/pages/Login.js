@@ -15,7 +15,7 @@ function Login({ onLogin }) {
                 <br></br>
                 <p>
                     Don't have an account? &nbsp;
-                    <Button onClick={() => navigate("/signup")}>
+                    <Button className="button" onClick={() => navigate("/signup")}>
                         Sign Up
                     </Button>
                 </p>

@@ -1,6 +1,5 @@
 import React from "react";
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Stack from 'react-bootstrap/Stack';
 import OpportunityCard from "../components/OpportunityCard";
 
 
@@ -8,19 +7,21 @@ function OpportunitiesContainer({user, opps}) {
 
     const opportunity = opps.map((opportunity) => {
         return (
-            <Col key={opportunity.idx}>
+            <div key={opportunity.idx}>
                 <OpportunityCard key={opportunity.id} opportunity={opportunity}/>
-            </Col>
+            </div>
+              );
+            }
         )
-    })
 
-    return (
-    <div className="opps-container">
-        <Row md={1} className="opp-row">
-            {opportunity}
-        </Row>
-    </div>
-    )
-}
-
+        return (
+            <div>
+                <Stack className="opp-stack" gap={4}>
+                  {opportunity}
+                </Stack>
+            </div>
+        )
+    }
 export default OpportunitiesContainer;
+
+
