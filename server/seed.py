@@ -2,35 +2,70 @@
 
 from random import randint, choice as rc
 from faker import Faker
-import requests
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask import request, make_response
 from config import db, app
-from models import Opportunity
+from models import Opportunity, Organization, Volunteer
 
 
-@app.cli.command('seed_db')
-def seed_db():
-    print("Starting seed...")
+fake = Faker()
 
-    # Make a request to the Volunteer Connector API
-    response = request.get('https://www.volunteerconnector.org/api/search/')
-    if response.status_code == 200:
-        data = response.json()
-    else:
-        print("Failed to retrieve data from the API")
-        exit(1)
+with app.app_context():
+    print("Deleting all records...")
+    Opportunity.query.delete()
+    Organization.query.delete()
+    Volunteer.query.delete()
+    
+    fake = Faker()
 
-    # Seed the database with the retrieved data
-    for item in data:
-        opportunity = Opportunity(organization_name=item['organization_name'], organization_email=item['organization_email'])
-        db.session.add(opportunity)
-        db.session.commit()
+    print("Creating volunteers...")
+    first_names = fake.first_name()
+    last_names = fake.last_name()
+    emails = fake.email()
+    phone_numbers = fake.phone_number()
+    usernames = fake.username()
+    _password_hashs = fake._password_hash()
+    interests = fake.interest()
+    skills = fake.skill()
+    hours_wanted = fake.hours_wanted()
+    zipcodes = fake.zipcode()
+    for i in range(5):
 
-    print("Seeding completed successfully!")
+        username = fake.username()
+        while username in usernames:
+            username = fake.username()
+        
+        usernames.append(volunteer)
 
-if __name__ == '__main__':
-    app.run()
+        user = Volunteer(username=username)
+        volunteers.append(user)
+
+    db.session.add_all(volunteers)
+
+
+
+# @app.cli.command('seed_db')
+# def seed_db():
+#     print("Starting seed...")
+
+#     # Make a request to the Volunteer Connector API
+#     response = request.get('https://www.volunteerconnector.org/api/search/')
+#     if response.status_code == 200:
+#         data = response.json()
+#     else:
+#         print("Failed to retrieve data from the API")
+#         exit(1)
+
+# #     # Seed the database with the retrieved data
+# #     for item in data:
+# #         opportunity = Opportunity(organization_name=item['organization_name'], organization_email=item['organization_email'])
+# #         db.session.add(opportunity)
+# #         db.session.commit()
+
+# #     print("Seeding completed successfully!")
+
+# # if __name__ == '__main__':
+# #     app.run()
+
 
 
 

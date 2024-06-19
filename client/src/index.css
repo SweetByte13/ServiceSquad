@@ -49,6 +49,8 @@ body {
   cursor: pointer;
 }
 
+
+/* ABOUT */
 .about {
   margin-left: 0vw;
   padding-left: 5vw;
@@ -65,9 +67,50 @@ body {
   background-color: #b3dee5;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 20px;
+}
+
+.right-div-header {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.right-div {
+  flex: 0 0 40%;
+  margin-top: 20px;
+  padding: 10px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.left-div {
+  flex: 0 0 60%;
+  padding: 10px;
+  margin-top: 10px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.right-div-stack {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 20px;
+  border: solid;
+  border-radius: 5px;
+  background-color: #ffa101;
+  color:#31525b;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+
 
 /* NAVBAR */
-.login-btn {
+.navbar-login-btn {
   margin-top: 5px !important;
   margin-left: 5px !important;
   padding: 5px 10px !important;
@@ -108,44 +151,7 @@ body {
 }
 
 
-/* ABOUT */
-.container {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  gap: 20px;
-}
-
-.left-div {
-  flex: 0 0 60%;
-  padding: 10px;
-  margin-top: 10px;
-  color: #31525b;
-  font-family: Verdana;
-}
-
-.right-div {
-  flex: 0 0 40%;
-  margin-top: 20px;
-  padding: 10px;
-  color: #31525b;
-  font-family: Verdana;
-}
-
-.p-2 {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-left: 20px;
-  padding-left: 20px;
-  border: solid;
-  border-radius: 5px;
-  background-color: #ffa101;
-  color:#31525b;
-}
-
-
-.signup-container {
-  margin-top: 150px
-}/* OPPORTUNITIES */
+/* OPPORTUNITIES */
 .opp-org-header { 
   margin-left: 50px;
   margin-top: 40px;
@@ -210,6 +216,14 @@ body {
   margin-left: 50px;
   display: flex;
   flex-direction: row;
+  font-family: Verdana;
+  font-weight: 600;
+  color: #31525b;
+}
+
+.select {
+  font-family: Verdana;
+  color: #31525b;
 }
 
 .filter{
@@ -250,12 +264,83 @@ body {
 
 .searchlabel {
   margin-right: 8px;
+  font-family: Verdana;
+  color: #31525b;
+  font-weight: 600;
 }
+
+.searchinput {
+  font-family: Verdana;
+  color: #31525b;
+}
+
 
 /* PROFILE */
 
 
 /* SIGNUP */
-
+.signup-container {
+  margin-top: 150px
+}
 
 /* LOGIN */
+.login-form {
+  margin-left: 10%;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  /* position: relative; */
+}
+
+.login-header {
+  margin-left: 50px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-top: 40px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+
+.signup-loginpage {
+  margin-left: 50px;
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.signup-button-loginpage {
+  margin-left: 5px !important;
+  background-color: #ffa101 !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: #31525b !important;
+  cursor: pointer !important;
+  font-family: Verdana;
+}
+
+.mb-3 {
+  color: #31525b;
+  font-family: Verdana;
+}
+
+.login-button {
+  margin-top: 5px !important;
+  margin-left: 5px !important;
+  padding: 5px 10px !important;
+  background-color: #ffa101 !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: #31525b !important;
+  cursor: pointer !important;
+}
+
+.footer {
+  background-color: #ffa101;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 20px;
+}
