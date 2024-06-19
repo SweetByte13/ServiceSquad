@@ -23,7 +23,7 @@ function Organizations() {
     <NavBar />
     <main>
       <h1 className="opp-org-header">Organizations</h1>
-        <Search setSearchOrg={setSearchOrg}/>
+        <Search setSearchOrg={setSearchOrg} searchOrg={searchOrg}/>
         <OrganizationContainer />
     </main>
     </>

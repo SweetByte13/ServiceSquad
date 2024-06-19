@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-from random import randint, choice as rc 
+from random import randint, choice as rc
 from faker import Faker
-from flask import request, make_response
+import requests
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import db, app
 from models import Opportunity
