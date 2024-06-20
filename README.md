@@ -11,18 +11,18 @@ A user is able to:
 - Create a profile, and log in/out of the app.
 - Update their profile and preferences.
 - Delete their profile. 
-- Search for community service opportunities based on location, type of service, and availability.
-- Search for community service organizations in their area.
+- Search for community service opportunities based on location, activities, category, and organization.
+- Search for community service organizations in their area by name.
 
 ## To SetUp Flask API backend and React frontend
 
 In your terminal, run:
-$ pipenv install && pipenv shell
-$ cd server
+- $ pipenv install && pipenv shell
+- $ cd server
 
 In another terminal, run React from the project root directory:
-$ npm install --prefix client
-$ npm start --prefix client
+- $ npm install --prefix client
+- $ npm start --prefix client
 
 
 
