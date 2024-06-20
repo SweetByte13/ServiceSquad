@@ -4,23 +4,23 @@ import Search from "../components/Search";
 import OrganizationContainer from "../components/OrganizationContainer";
 
 
-function Organizations() {
-
+function Organizations({ user, setUser}) {
   const [searchOrg, setSearchOrg] = useState("")
+  const [orgs, setOrgs] = useState([])
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5555/organizations")
-  //     .then((resp) => (resp.json()))
-  //     .then((orgs) => setSearchOrg(orgs))
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:5555/organizations")
+      .then((resp) => (resp.json()))
+      .then((orgs) => setOrgs(orgs))
+  }, [])
 
   return (
     <>
-    <NavBar />
+    <NavBar user={user} setUser={setUser} />
     <main>
       <h1 className="opp-org-header">Organizations</h1>
         <Search setSearchOrg={setSearchOrg} searchOrg={searchOrg}/>
-        <OrganizationContainer />
+        <OrganizationContainer orgs={orgs} setOrgs={setOrgs}/>
     </main>
     </>
   );

@@ -2,15 +2,17 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function OrganizationCard() {
+function OrganizationCard({org}) {
+
+  const {name, website, category, opportunities} = org
     
     return (
       <Card className="org-card"> 
-        <Card.Header className="card-header" as="h5">Org Name</Card.Header>
+        <Card.Header className="card-header" as="h5">{name}</Card.Header>
         <Card.Body>
-          <Card.Title>Location</Card.Title>
-          <Card.Text>description</Card.Text>
-          <Card.Text>Link here maybe?</Card.Text>
+          <Card.Title>{category}</Card.Title>
+          <Card.Text>{opportunities}</Card.Text>
+          <Card.Text>{website}</Card.Text>
           <div className="buttons">
           {/* <Button className="apply-button" onClick={() => handleApplyButton()}>Apply</Button> */}
           </div>

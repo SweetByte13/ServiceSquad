@@ -3,13 +3,17 @@ import HomeImageCarousel from "../components/HomeImageCarousel";
 import NavBar from "../components/NavBar";
 import About from "../components/About";
 
-function Home() {
+function Home( {user, setUser}) {
+
 
     return (
     <div>
-        <NavBar />
-        <HomeImageCarousel />
-        <About />
+        <NavBar user={user} setUser={setUser} />
+        <main>
+            <HomeImageCarousel />
+            <About />
+            <Footer />
+        </main>
     </div>
     )
 }

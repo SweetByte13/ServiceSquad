@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpeg"
 
-function NavBar({ user, setuser }) {
+function NavBar({ user, setUser }) {
   const navigate = useNavigate();
 
   function handleLogInClick() {
@@ -15,9 +15,15 @@ function NavBar({ user, setuser }) {
 
 
   function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((resp) => {
+    fetch("http://localhost:5555/logout/1", 
+      { 
+        method: "DELETE",
+        headers: {
+        'Content-Type': 'application/json'
+    },
+  }).then((resp) => {
       if (resp.ok) {
-        setuser(null);
+        setUser(null);
       }
     });
   }
@@ -47,7 +53,7 @@ function NavBar({ user, setuser }) {
               <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>
               <Nav.Link className="nav-link" href="signup">Signup</Nav.Link>
             </Nav>
-           {user ? <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button> : <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button>}
+           {user === null || user === undefined ? <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button> : <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button>}
           </Navbar.Collapse>
         </Container>
       </Navbar>

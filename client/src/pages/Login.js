@@ -4,12 +4,13 @@ import Button from 'react-bootstrap/Button';
 import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
 
-function Login({ onLogin }) {
+function Login({ setUser, user }) {
     const navigate = useNavigate();
     return (
         <div>
-            <NavBar />
+            <NavBar user={user} setUser={setUser} />
             <main>
+                
                 <h2 className="login-header">Welcome Back to ServiceSquad</h2>
                 <p className="signup-loginpage">
                     Don't have an account? &nbsp;
@@ -17,7 +18,7 @@ function Login({ onLogin }) {
                         Sign Up
                     </Button>
                 </p>
-                <LogInForm onLogin={onLogin} />
+                <LogInForm setUser={setUser} />
                 <br></br>
             </main>
         </div>

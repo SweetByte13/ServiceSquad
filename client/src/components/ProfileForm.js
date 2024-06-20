@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup'
 import { Container } from '@mui/material';
 
-function ProfileForm({ setUser }) {
+function ProfileForm({ user, setUser }) {
     const [profile, setProfile] = useState(true)
 
 
@@ -20,47 +20,46 @@ function ProfileForm({ setUser }) {
         skills: yup.string().required('Skills are required!'),
         hoursWanted: yup.number().integer().min(1, 'Minimum of 1 hour required!'),
     })
-}
 
-const handleEditSubmit = (values) => {
-    const endpoint = '/profile'
-    fetch(endpoint, {
-        method: 'PATCH',
-        headers: {
-            "Content-Type": 'application/json'
-        },
-        body: JSON.stringify(values) 
-        // pass updated profile values in request body
-    }).then((resp) => {
-        if (resp.ok) {
-            resp.json().then((user) => {
-                setUser(user)
-            })
-        } else {
-            alert('Invalid credentials')
-        }
-    })
-}
+    const handleEditSubmit = (values) => {
+        const endpoint = '/profile'
+        fetch(endpoint, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(values)
+            // pass updated profile values in request body
+        }).then((resp) => {
+            if (resp.ok) {
+                resp.json().then((user) => {
+                    setUser(user)
+                })
+            } else {
+                alert('Invalid credentials')
+            }
+        })
+    }
 
-const handleDeleteSubmit = (values) => {
-    const endpoint = '/profile'
-    fetch(endpoint, {
-        method: 'DELETE',
-        headers: {
-            "Content-Type": 'application/json'
-        },
-        body: JSON.stringify(values) 
-        // pass updated profile values in request body
-    }).then((resp) => {
-        if (resp.ok) {
-            resp.json().then((user) => {
-                setUser(user)
-            })
-        } else {
-            alert('Invalid credentials')
-        }
-    })
-}
+    const handleDeleteSubmit = (values) => {
+        const endpoint = '/profile'
+        fetch(endpoint, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(values)
+            // pass updated profile values in request body
+        }).then((resp) => {
+            if (resp.ok) {
+                resp.json().then((user) => {
+                    setUser(user)
+                })
+            } else {
+                alert('Invalid credentials')
+            }
+        })
+    }
 
     const [formValues, setFormValues] = useState({
         firstName: '',
@@ -75,10 +74,8 @@ const handleDeleteSubmit = (values) => {
         skills: '',
         hoursWanted: ''
     });
-
-export default ProfileForm;
-
-
+}
+export default ProfileForm
 
 
 // <Formik
