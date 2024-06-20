@@ -28,7 +28,7 @@ function SignUpForm({ user, setUser }) {
     }
 
     const handleFormSubmit = (values, { setSubmitting  }) => {
-        const endpoint = "http://localhost:5555/signup";
+        const endpoint = "/signup";
         fetch (endpoint, {
             method: 'POST',
             headers: {
