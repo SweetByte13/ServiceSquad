@@ -76,9 +76,126 @@ const handleDeleteSubmit = (values) => {
         hoursWanted: ''
     });
 
+    return (
+        <Container className="profile-container">
+            <Formik
+                initialValues={initialValues}
+                validationSchema={profileSchema}
+                onSubmit={handleSubmit}
+            >
+                {({handleSubmit, values, handleChange}) => (
+                    <form className='form' onSubmit={handleSubmit}>
+
+                        
+                        <label htmlFor='firstName'>First Name:</label>
+                        <input
+                            id='firstName'
+                            name='firstName'
+                            placeholder='First Name'
+                            required
+                            value={values.firstName}
+                            onChange={handleFirstNameChange}
+                        />
+
+                        <label htmlFor='lastName'>Last Name:</label>
+                        <input
+                            id='lastName'
+                            name='lastName'
+                            placeholder='Last Name'
+                            required
+                            value={values.lastName}
+                            onChange={handleLastNameChange}
+                        />
+
+                        <label htmlFor='email'>Email:</label>
+                        <input
+                            id='email'
+                            name='email'
+                            placeholder='Email'
+                            required
+                            value={values.email}
+                            onChange={handleEmailChange}
+                        />
+
+                        <label htmlFor='phoneNumber'>Phone Number:</label>
+                        <input
+                            id='phoneNumber'
+                            name='phoneNumber'
+                            placeholder='Phone Number'
+                            required
+                            value={values.phoneNumber}
+                            onChange={handlePhoneNumberChange}
+                        />
+
+                        <label htmlFor='username'>Username:</label>
+                        <input
+                            id='username'
+                            name='username'
+                            type='username'
+                            placeholder='Username'
+                            value={values.username}
+                            onChange={handleUsernameChange}
+                        />
+
+                        {/* <label htmlFor='password'>Password:</label>
+                        <input
+                            id='password'
+                            name='password'
+                            type='password'
+                            placeholder='Password'
+                            value={values.password}
+                            onChange={handleChange}
+                        />
+
+                        <label htmlFor='passwordConfirmation'>Password Confirmation:</label>
+                        <input
+                            id='passwordConfirmation'
+                            name='passwordConfirmation'
+                            type='password'
+                            placeholder='Password Confirmation'
+                            value={values.passwordConfirmation}
+                            onChange={handleChange}
+                        /> */}
+
+                        <label htmlFor='zipCode'>Zip Code:</label>
+                        <input
+                            id='zipCode'
+                            name='zipCode'
+                            type='zipCode'
+                            placeholder='Zip Code'
+                            value={values.zipCode}
+                            onChange={handleZipCodeChange}
+                        />
+
+                        <label htmlFor='interests'>Interests:</label>
+                        <input
+                            id='interests'
+                            name='interests'
+                            type='interests'
+                            placeholder='Interests'
+                            value={values.username}
+                            onChange={handleInterestsChange}
+                        />
+
+                        <label htmlFor='skills'>Skills:</label>
+                        <input
+                            id='skills'
+                            name='skills'
+                            type='skills'
+                            placeholder='Skills'
+                            value={values.skills}
+                            onChange={handleSkillsChange}
+                        />
 
 
+                    <button type='submit'>Submit</button>
+                    </form>
+                    )}
+            </Formik>
+        </Container>
+    )
 
+export default ProfileForm;
 
 
 // <Formik
