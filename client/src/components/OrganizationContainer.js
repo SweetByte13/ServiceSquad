@@ -1,25 +1,31 @@
 import React from "react";
 import Stack from 'react-bootstrap/Stack';
 import OrganizationCard from "../components/OrganizationCard";
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 
 function OrganizationContainer({user, orgs}) {
 
-    const organization = orgs.map((org) => {
+    const organizationCards = orgs.map((org) => {
         return (
-            <Col key={org.idx}>
-                <OrganizationCard key={org.id} org={org} />
-            </Col>
-        )
-    })
-
+            <OrganizationCard
+                key={org.id}
+                name={org.name}
+                website={org.website}
+                category={org.category}
+            />
+        )})
+            // <Col key={org.idx}>
+            //     <OrganizationCard key={org.id} org={org} />
+            // </Col>
+        
         return (
             <div>
-                <Stack className="org-stack" gap={4}>
-                    {/* {organization} */}
+                <Stack className="opp-stack" gap={4}>
+                    {/* {organizationCards} */}
                </Stack>
             </div>
         )
     }
+
 export default OrganizationContainer;
 

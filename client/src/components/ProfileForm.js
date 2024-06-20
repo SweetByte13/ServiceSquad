@@ -156,6 +156,17 @@ function ProfileForm({ user, setUser }) {
                         />
                     </div>  */}
                         <div className="right-column">
+                            <label htmlFor='zipCode'>Zip Code:</label>
+                            <input
+                                id='zipCode'
+                                name='zipCode'
+                                type='zipCode'
+                                placeholder='Zip Code'
+                                value={values.zipCode}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="left-column">
                             <label htmlFor='phoneNumber'>Phone Number:</label>
                             <input
                                 id='phoneNumber'
@@ -166,14 +177,14 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="left-column">
-                            <label htmlFor='zipCode'>Zip Code:</label>
+                        <div className="right-column">
+                            <label htmlFor='hoursWanted'>Hours Wanted:</label>
                             <input
-                                id='zipCode'
-                                name='zipCode'
-                                type='zipCode'
-                                placeholder='Zip Code'
-                                value={values.zipCode}
+                                id='hoursWanted'
+                                name='hoursWanted'
+                                type='hoursWanted'
+                                placeholder='Hours Wanted'
+                                value={values.hoursWanted}
                                 onChange={handleChange}
                             />
                         </div>
@@ -199,23 +210,11 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="right-column">
-                            <label htmlFor='hoursWanted'>Hours Wanted:</label>
-                            <input
-                                id='hoursWanted'
-                                name='hoursWanted'
-                                type='hoursWanted'
-                                placeholder='Hours Wanted'
-                                value={values.hoursWanted}
-                                onChange={handleChange}
-                            />
+                        <div className="button-container-left">
+                            <button type='submit'>Submit</button>
                         </div>
-                        <div className="button-container">
-                            <button className="button-profileform" type='submit'>Submit</button>
-                        </div>
-                        <br></br>
-                        <div className="button-container">
-                            <button className="button-profileform" onClick={() => handleAccountDelete()}>Delete Account</button>
+                        <div className="button-container-right">
+                            <button onClick={() => handleAccountDelete()}>Delete Account</button>
                         </div>
                     </form>
                 )}
