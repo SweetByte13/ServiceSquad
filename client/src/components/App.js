@@ -13,6 +13,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Profile from "../pages/Profile";
 import Opportunities from "../pages/Opportunities";
+import Opportunity from "../pages/Opportunity";
 import Organizations from "../pages/Organizations"
 import ErrorPage from '../pages/ErrorPage';
 
@@ -75,6 +76,7 @@ return (
         <Route path="/login" element={<Login setUser={setUser} user={user}/>} />
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
         <Route path="/opportunities" element={<Opportunities setUser={setUser} user={user} />}/>
+        <Route path="/opportunities/:id" element={<Opportunity setUser={setUser} user={user} />}/>
         <Route path="/organizations" element={<Organizations setUser={setUser} user={user} />} />
         <Route path="/signup" element={<SignUp setUser={setUser} user={user}/>} />
       </Routes>

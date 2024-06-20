@@ -49,10 +49,10 @@ function NavBar({ user, setUser }) {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto pt-2">
               <Nav.Link className="nav-link" href="#about" onClick={handleAboutClick}>About</Nav.Link>
-              <Nav.Link className="nav-link" href="opportunities">Opportunities</Nav.Link>
-              <Nav.Link className="nav-link" href="organizations">Organizations</Nav.Link>
-              <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>
-              <Nav.Link className="nav-link" href="signup">Signup</Nav.Link>
+              <Nav.Link className="nav-link" href="/opportunities">Opportunities</Nav.Link>
+              <Nav.Link className="nav-link" href="/organizations">Organizations</Nav.Link>
+              <Nav.Link className="nav-link" href="/profile">Profile</Nav.Link>
+              <Nav.Link className="nav-link" href="/signup">Signup</Nav.Link>
             </Nav>
            {user === null || user === undefined ? <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button> : <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button>}
           </Navbar.Collapse>

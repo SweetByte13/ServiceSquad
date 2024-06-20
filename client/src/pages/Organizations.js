@@ -10,9 +10,16 @@ function Organizations({ user, setUser}) {
 
   useEffect(() => {
     fetch("/organizations")
-      .then((resp) => (resp.json()))
-      .then((orgs) => setOrgs(orgs))
-  }, [])
+        .then((resp) => {
+            if (resp.ok) {
+                return resp.json();
+            }
+            throw Error('Network response was not ok.');
+        })
+        .then((orgsData) => {
+          setOrgs(orgsData)
+        });
+}, []);
 
   return (
     <>

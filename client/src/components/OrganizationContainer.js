@@ -12,11 +12,18 @@ function OrganizationContainer({orgs}) {
     //         </Col>
     //     )
     // })
+    const organization = orgs.map((org) => {
+        return (
+            <OrganizationCard key={org.id} org={org}/>
+              );
+            }
+        )
+
 
         return (
             <div>
                 <Stack className="opp-stack" gap={4}>
-                    {/* {organization} */}
+                    {organization}
                </Stack>
             </div>
         )
