@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import NavBar from "../components/NavBar";
 import OpportunitiesContainer from "../components/OpportunitiesContainer";
 import OppDropdownFilter from "../components/OppDropdownFilter";
-import Footer from "../components/Footer";
 
 function Opportunities({ user, setUser }) {
     const [opps, setOpps] = useState([])
@@ -47,7 +46,6 @@ function Opportunities({ user, setUser }) {
                 <OppDropdownFilter />
                 <OpportunitiesContainer user={user} opps={opps} />
             </main>
-            <Footer />
         </div>
     )
 }

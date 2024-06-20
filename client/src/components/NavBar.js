@@ -5,8 +5,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpeg"
-import "../index.css"
-
 
 function NavBar({ user, setUser }) {
   const navigate = useNavigate();

@@ -72,130 +72,135 @@ function SignUpForm({ user, setUser }) {
             >
                 {({handleSubmit, values, handleChange}) => (
                     <form className='form' onSubmit={handleSubmit}>
-                        
-                        <label htmlFor='firstName'>First Name:</label>
-                        <input
-                            id='firstName'
-                            name='firstName'
-                            placeholder='First Name'
-                            required
-                            value={values.firstName}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='lastName'>Last Name:</label>
-                        <input
-                            id='lastName'
-                            name='lastName'
-                            placeholder='Last Name'
-                            required
-                            value={values.lastName}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='email'>Email:</label>
-                        <input
-                            id='email'
-                            name='email'
-                            placeholder='Email'
-                            required
-                            value={values.email}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='phoneNumber'>Phone Number:</label>
-                        <input
-                            id='phoneNumber'
-                            name='phoneNumber'
-                            placeholder='Phone Number'
-                            required
-                            value={values.phoneNumber}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='username'>Username:</label>
-                        <input
-                            id='username'
-                            name='username'
-                            type='username'
-                            placeholder='Username'
-                            value={values.username}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='password'>Password:</label>
-                        <input
-                            id='password'
-                            name='password'
-                            type='password'
-                            placeholder='Password'
-                            value={values.password}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='passwordConfirmation'>Password Confirmation:</label>
-                        <input
-                            id='passwordConfirmation'
-                            name='passwordConfirmation'
-                            type='password'
-                            placeholder='Password Confirmation'
-                            value={values.passwordConfirmation}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='zipCode'>Zip Code:</label>
-                        <input
-                            id='zipCode'
-                            name='zipCode'
-                            type='zipCode'
-                            placeholder='Zip Code'
-                            value={values.zipCode}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='interests'>Interests:</label>
-                        <input
-                            id='interests'
-                            name='interests'
-                            type='interests'
-                            placeholder='Interests'
-                            value={values.interests}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='skills'>Skills:</label>
-                        <input
-                            id='skills'
-                            name='skills'
-                            type='skills'
-                            placeholder='Skills'
-                            value={values.skills}
-                            onChange={handleChange}
-                        />
-
-                        <label htmlFor='hoursWanted'>Hours Wanted:</label>
-                        <input
-                            id='hoursWanted'
-                            name='hoursWanted'
-                            type='hoursWanted'
-                            placeholder='Hours Wanted'
-                            value={values.hoursWanted}
-                            onChange={handleChange}
-                        />
-
-                    <button type='submit'>Submit</button>
+                        <div className="left-column">
+                            <label htmlFor='firstName'>First Name:</label>
+                                <input
+                                    id='firstName'
+                                    name='firstName'
+                                    placeholder='First Name'
+                                    required
+                                    value={values.firstName}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="right-column">
+                            <label htmlFor='lastName'>Last Name:</label>
+                                <input
+                                    id='lastName'
+                                    name='lastName'
+                                    placeholder='Last Name'
+                                    required
+                                    value={values.lastName}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="left-column">
+                            <label htmlFor='email'>Email:</label>
+                                <input
+                                    id='email'
+                                    name='email'
+                                    placeholder='Email'
+                                    required
+                                    value={values.email}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="right-column">
+                            <label htmlFor='username'>Username:</label>
+                                <input
+                                    id='username'
+                                    name='username'
+                                    type='username'
+                                    placeholder='Username'
+                                    value={values.username}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="left-column">
+                            <label htmlFor='password'>Password:</label>
+                                <input
+                                    id='password'
+                                    name='password'
+                                    type='password'
+                                    placeholder='Password'
+                                    value={values.password}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="right-column">
+                            <label htmlFor='passwordConfirmation'>Password Confirmation:</label>
+                                <input
+                                    id='passwordConfirmation'
+                                    name='passwordConfirmation'
+                                    type='password'
+                                    placeholder='Password Confirmation'
+                                    value={values.passwordConfirmation}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="left-column">
+                            <label htmlFor='phoneNumber'>Phone Number:</label>
+                                <input
+                                    id='phoneNumber'
+                                    name='phoneNumber'
+                                    placeholder='Phone Number'
+                                    required
+                                    value={values.phoneNumber}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="right-column">
+                            <label htmlFor='zipCode'>Zip Code:</label>
+                                <input
+                                    id='zipCode'
+                                    name='zipCode'
+                                    type='zipCode'
+                                    placeholder='Zip Code'
+                                    value={values.zipCode}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="left-column">
+                            <label htmlFor='interests'>Interests:</label>
+                                <input
+                                    id='interests'
+                                    name='interests'
+                                    type='interests'
+                                    placeholder='Interests'
+                                    value={values.interests}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="right-column">
+                            <label htmlFor='skills'>Skills:</label>
+                                <input
+                                    id='skills'
+                                    name='skills'
+                                    type='skills'
+                                    placeholder='Skills'
+                                    value={values.skills}
+                                    onChange={handleChange}
+                                />
+                        </div>
+                        <div className="left-column">
+                            <label htmlFor='hoursWanted'>Hours Wanted:</label>
+                            <input
+                                id='hoursWanted'
+                                name='hoursWanted'
+                                type='hoursWanted'
+                                placeholder='Hours Wanted'
+                                value={values.hoursWanted}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="button-container">
+                            <button className="button-signupform"type='submit'>Submit</button>
+                        </div>
                     </form>
                     )}
             </Formik>
         </Container>
     )
-
-
-    // return (
-    // <div>
-    //     <h1>This is the SignUp.</h1>
-    // </div>
-    // )
 }
 
 export default SignUpForm;

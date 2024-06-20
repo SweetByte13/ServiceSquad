@@ -20,8 +20,6 @@ function Login({ setUser, user }) {
                 </p>
                 <LogInForm setUser={setUser} />
                 <br></br>
-                
-                
             </main>
         </div>
     )
