@@ -31,7 +31,7 @@ function LoginForm({ user, setUser }) {
         }).then((user) => {
             setUser(user);
             console.log(user)
-            navigate("/");
+            setTimeout(500, () => navigate("/"));
         });
         setSubmitting (false);
     }

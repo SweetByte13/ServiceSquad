@@ -12,7 +12,7 @@ function Home( {user, setUser}) {
         <main>
             <HomeImageCarousel />
             <About />
-            <Footer />
+            
         </main>
     </div>
     )
