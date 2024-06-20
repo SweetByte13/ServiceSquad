@@ -2,43 +2,32 @@
 
 ## Phase 4 Full-Stack Application Project
 
-- Discuss the basic directory structure of a full-stack Flask/React application.
-- Carry out the first steps in creating your Phase 4 project.
-
 ---
 
 ## Introduction
 
 ServiceSquad is a full-stack application that allows a user to create an account and search for community service opportunites in their area. 
 A user is able to:
-- Create 
+- Create a profile, and log in/out of the app.
+- Update their profile and preferences.
+- Delete their profile. 
+- Search for community service opportunities based on location, type of service, and availability.
+- Search for community service organizations in their area.
 
 ## To SetUp Flask API backend and React frontend
 
-Run:
+In your terminal, run:
 $ pipenv install && pipenv shell
-$ npm install --prefix client
 $ cd server
 
-Run React in another terminal from the project root directory:
+In another terminal, run React from the project root directory:
+$ npm install --prefix client
 $ npm start --prefix client
 
 
 
+## About Us
 
-### TBD
-
-... TBD ...
-
-### About Us
-
-ServiceSquad was created by Tova Hillman, Julia Whey, and Erin Yant. We drew inspiration from myvoluntier.com, and built this.....
+ServiceSquad was created by Tova Hillman, Julia Whey, and Erin Yant. We drew inspiration from myvoluntier.com, and created our dream app that allows community members to find organizations in their area and connect about volunteer opportunites. 
 ---
 
-
-
-
-
-## TBD
-
-TBD

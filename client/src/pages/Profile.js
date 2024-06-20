@@ -9,7 +9,8 @@ function Profile({ user, setUser }) {
             <main>
             
             <br></br>
-                <p>Edit your profile here.</p>
+                {/* <p>Edit your profile here.</p> */}
+                <h4 className="profile-sub-header">Use the form below to edit your profile.</h4>
                 <ProfileForm setUser={setUser} user={user} />
             </main>
         </div>

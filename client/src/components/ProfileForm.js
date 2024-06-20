@@ -42,21 +42,20 @@ function ProfileForm({ user, setUser }) {
     }
 
     // const handleFormSubmit = (values) => {
-    //     const endpoint = '/profile'
+    //     const endpoint = `/volunteer/${user.id}`
     //     fetch(endpoint, {
     //         method: 'DELETE',
     //         headers: {
     //             "Content-Type": 'application/json'
     //         },
     //         body: JSON.stringify(values)
-    //         // pass updated profile values in request body
     //     }).then((resp) => {
     //         if (resp.ok) {
     //             resp.json().then((user) => {
     //                 setUser(user)
     //             })
     //         } else {
-    //             alert('Invalid credentials')
+    //             alert('Unable to delete')
     //         }
     //     })
     // }
@@ -66,13 +65,10 @@ function ProfileForm({ user, setUser }) {
         lastName: '',
         email: '',
         phoneNumber: '',
-        // username: '',
-        // password: '',
-        // passwordConfirmation: '',
         zipCode: '',
         interests: '',
         skills: '',
-        hoursWanted: ''
+        hoursWanted: '',
     }
 
 return (
@@ -151,7 +147,7 @@ return (
                             onChange={handleChange}
                         />
                     </div>  */}
-                    <div className="left-column">
+                    <div className="right-column">
                         <label htmlFor='phoneNumber'>Phone Number:</label>
                         <input
                             id='phoneNumber'
@@ -162,7 +158,7 @@ return (
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="right-column">
+                    <div className="left-column">
                         <label htmlFor='zipCode'>Zip Code:</label>
                         <input
                             id='zipCode'
@@ -173,7 +169,7 @@ return (
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="left-column">
+                    <div className="right-column">
                         <label htmlFor='interests'>Interests:</label>
                         <input
                             id='interests'
@@ -184,7 +180,7 @@ return (
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="right-column">
+                    <div className="left-column">
                         <label htmlFor='skills'>Skills:</label>
                         <input
                             id='skills'
@@ -195,7 +191,7 @@ return (
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="left-column">
+                    <div className="right-column">
                         <label htmlFor='hoursWanted'>Hours Wanted:</label>
                         <input
                             id='hoursWanted'
@@ -208,6 +204,7 @@ return (
                     </div>
                     <div className="button-container">
                         <button className="button-profileform" type='submit'>Submit</button>
+                        <button className="button-profileform" type='delete'>Delete</button>
                     </div>
                 </form>
             )}
