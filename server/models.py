@@ -13,7 +13,7 @@ class Volunteer(db.Model, SerializerMixin):
     serialize_rules = ('-_password_hash',)
     
     __table_args__ = (
-        db.CheckConstraint('length(username) > 6', name='username_length_over_six'), db.CheckConstraint('length(phone_number) = 10 or length(phone_number) = 15', name='phone_number_length_ten'),
+        db.CheckConstraint('length(username) > 6', name='username_length_over_six'), db.CheckConstraint('length(phone_number) = 10 or length(phone_number) = 12 or length(phone_number) = 15 or length(phone_number) = 17', name='phone_number_length'),
     ) 
     
     id=db.Column(db.Integer, primary_key=True)

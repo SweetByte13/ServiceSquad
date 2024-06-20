@@ -38,31 +38,33 @@ class Login(Resource):
     
 class Logout(Resource):
     def delete(self):
-        session['volunteer_id'] = None
+        print("trying to logout")
+        session.pop('volunteer_id', None)
         return make_response({}, 204)
-
+    
 class CheckSession(Resource):
     def get(self):
-        volunteer_id = session['volunteer_id']
-        if volunteer_id:
-            volunteer = db.session.get(Volunteer, volunteer_id)
-            if volunteer:
-                return make_response(volunteer.to_dict(), 200)
-        return make_response({"error": "Unauthorized: Must login"}, 401)
+        if 'volunteer_id' in session:
+            volunteer_id = session['volunteer_id']
+            if volunteer_id:
+                volunteer = db.session.get(Volunteer, id)
+                if volunteer:
+                    return make_response(volunteer.to_dict(), 200)
+        return make_response({"body": "None"}, 200) #make_response({"error": "Unauthorized: Must login"}, 401)
     
 class Signup(Resource):
     def post(self):
         params = request.get_json()
-        
+        print(params)
         username = params.get('username')
         password = params.get('password')
-        first_name = params.get('first_name')
-        last_name= params.get('last_name')
+        first_name = params.get('firstName')
+        last_name= params.get('lastName')
         email = params.get('email')
-        phone_number = params.get('phone_number')
+        phone_number = params.get('phoneNumber')
         interests = params.get('interests')
         skills = params.get('skills')
-        hours_wanted = params.get('hours_wanted')
+        hours_wanted = params.get('hoursWanted')
         zipcode = params.get('zipcode')
         
         volunteer = Volunteer(
@@ -83,8 +85,9 @@ class Signup(Resource):
             db.session.commit()
             session['volunteer_id'] = volunteer.id
             return make_response(volunteer.to_dict(), 201)
-        except IntegrityError:
-            return make_response({"error": "422 Unprocessable Entity"}, 422)
+        except IntegrityError as e:
+            print(e)
+            return make_response({"error": "422 Unprocessable Entity", "details": str(e)}, 422)
 
 class Opportunities(Resource):
     def get(self):

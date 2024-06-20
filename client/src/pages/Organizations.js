@@ -8,11 +8,11 @@ function Organizations() {
 
   const [searchOrg, setSearchOrg] = useState("")
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5555/organizations")
-  //     .then((resp) => (resp.json()))
-  //     .then((orgs) => setSearchOrg(orgs))
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:5555/organizations")
+      .then((resp) => (resp.json()))
+      .then((orgs) => setSearchOrg(orgs))
+  }, [])
 
   return (
     <>

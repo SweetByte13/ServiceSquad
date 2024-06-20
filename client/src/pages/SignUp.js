@@ -2,11 +2,11 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import SignUpForm from "../components/SignUpForm";
 
-function SignUp() {
+function SignUp({user, setUser}) {
     return (
     <div>
-       <NavBar />
-       <SignUpForm />
+       {/* <NavBar /> */}
+       <SignUpForm setUser={setUser} />
     </div>
     )
 }

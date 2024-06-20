@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
 
-function Login({ onLogin }) {
+function Login({ setUser }) {
     const navigate = useNavigate();
     return (
         <div>
@@ -17,7 +17,7 @@ function Login({ onLogin }) {
                         Sign Up
                     </Button>
                 </p>
-                <LogInForm onLogin={onLogin} />
+                <LogInForm setUser={setUser} />
                 <br></br>
                 
                 

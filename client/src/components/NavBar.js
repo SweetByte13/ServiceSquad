@@ -8,7 +8,7 @@ import logo from "../assets/logo.jpeg"
 import "../index.css"
 
 
-function NavBar({ user, setuser }) {
+function NavBar({ user, setUser }) {
   const navigate = useNavigate();
 
   function handleLogInClick() {
@@ -17,9 +17,16 @@ function NavBar({ user, setuser }) {
 
 
   function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((resp) => {
+    fetch("http://localhost:5555/logout", 
+      { 
+        credentials: 'include',
+        method: "DELETE",
+        headers: {
+        'Content-Type': 'application/json'
+    },
+  }).then((resp) => {
       if (resp.ok) {
-        setuser(null);
+        setUser(null);
       }
     });
   }
@@ -49,7 +56,7 @@ function NavBar({ user, setuser }) {
               <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>
               <Nav.Link className="nav-link" href="signup">Signup</Nav.Link>
             </Nav>
-           {user ? <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button> : <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button>}
+           {!!user ? <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button> : <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button>}
           </Navbar.Collapse>
         </Container>
       </Navbar>

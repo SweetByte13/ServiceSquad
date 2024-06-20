@@ -1,16 +1,18 @@
 import React, {useState} from "react";
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import * as yup from 'yup'
 import { Container } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 
 function SignUpForm({ setUser }) {
-    const [signup, setSignUp] = useState(true)
+    const [signup, setSignUp] = useState(true);
+    const navigate = useNavigate();
 
     const signupSchema = yup.object().shape({
         firstName: yup.string().min(1, 'First name too short!').max(15, 'First name too long!'),
         lastName: yup.string().min(1, 'Last name too short!').max(15, 'Last name too long!'),
-        email: yup.string().min(1, 'Email too short!').max(25, 'Email too long!'),
+        email: yup.string().email("Invalid email address"),//.min(1, 'Email too short!').max(25, 'Email too long!'),
         phoneNumber: yup.string().min(10, 'Phone number too short!').max(17, 'Phone number too long!'),
         username: yup.string().min(5, 'Username too short!').max(15, 'Username too long!'),
         password: yup.string().min(5,'Password too short!').max(15, 'Password too long!'),
@@ -25,8 +27,8 @@ function SignUpForm({ setUser }) {
         setSignUp((currentSignup) => !currentSignup)
     }
 
-    const handleSubmit = (values) => {
-        const endpoint = signup ? '/signup' : '/login'
+    const handleFormSubmit = (values, { setSubmitting  }) => {
+        const endpoint = "http://localhost:5555/signup";
         fetch (endpoint, {
             method: 'POST',
             headers: {
@@ -35,13 +37,14 @@ function SignUpForm({ setUser }) {
             body: JSON.stringify(values)
         }).then((resp) => {
             if (resp.ok) {
-                resp.json().then((user) => {
-                    setUser(user)
-                })
+                resp.json().then((user) => 
+                    setUser(user))
+                    navigate("/");
             }   else {
                 alert('Invalid credentials')
             }
         })
+        setSubmitting (false);
     }
 
     let initialValues={ 
@@ -63,7 +66,7 @@ function SignUpForm({ setUser }) {
             <Formik
                 initialValues={initialValues}
                 validationSchema={signupSchema}
-                onSubmit={handleSubmit}
+                onSubmit={handleFormSubmit}
             >
                 {({handleSubmit, values, handleChange}) => (
                     <form className='form' onSubmit={handleSubmit}>
@@ -154,7 +157,7 @@ function SignUpForm({ setUser }) {
                             name='interests'
                             type='interests'
                             placeholder='Interests'
-                            value={values.username}
+                            value={values.interests}
                             onChange={handleChange}
                         />
 
