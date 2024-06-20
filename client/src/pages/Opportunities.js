@@ -4,7 +4,7 @@ import OpportunitiesContainer from "../components/OpportunitiesContainer";
 import OppDropdownFilter from "../components/OppDropdownFilter";
 import Footer from "../components/Footer";
 
-function Opportunities({ user }) {
+function Opportunities({ user, setUser }) {
     const [opps, setOpps] = useState([])
 
     useEffect(() => {
@@ -41,7 +41,7 @@ function Opportunities({ user }) {
 
     return (
         <div>
-            <NavBar />
+            <NavBar user={user} setUser={setUser} />
             <main>
                 <h1 className="opp-org-header">Service Opportunities</h1>
                 <OppDropdownFilter />

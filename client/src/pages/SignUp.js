@@ -5,8 +5,10 @@ import SignUpForm from "../components/SignUpForm";
 function SignUp({user, setUser}) {
     return (
     <div>
-       {/* <NavBar /> */}
+        <NavBar user={user} setUser={setUser} />
+        <main>
        <SignUpForm setUser={setUser} />
+       </main>
     </div>
     )
 }

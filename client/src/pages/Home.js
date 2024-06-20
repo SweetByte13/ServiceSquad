@@ -4,15 +4,17 @@ import NavBar from "../components/NavBar";
 import About from "../components/About";
 import Footer from "../components/Footer";
 
-function Home() {
+function Home( {user, setUser}) {
 
 
     return (
     <div>
-        <NavBar />
-        <HomeImageCarousel />
-        <About />
-        <Footer />
+        <NavBar user={user} setUser={setUser} />
+        <main>
+            <HomeImageCarousel />
+            <About />
+            <Footer />
+        </main>
     </div>
     )
 }

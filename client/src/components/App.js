@@ -16,9 +16,8 @@ import Opportunities from "../pages/Opportunities";
 import Organizations from "../pages/Organizations"
 import ErrorPage from '../pages/ErrorPage';
 
-function RequireAuth({ children }) {
+function RequireAuth({ children, user }) {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (!user) {
@@ -28,20 +27,20 @@ function RequireAuth({ children }) {
   return user ? children : null;
 }
 
-
 function App() {
-  const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     console.log("TEST")
-    if (!user) {
-      fetch("http://localhost:5555/check_session")
+    {
+      fetch("/check_session")
         .then((resp) => {
           if (resp.ok) {
-            resp.json()
-            .then((user) => console.log(user))
+             return resp.json()
           }
+        }).then((user) => {
+          console.log(user)
+          setUser(user)
         });
     }
   }, []);
@@ -68,17 +67,18 @@ function App() {
 
 return (
   <>
-    <NavBar user={user} setUser={setUser} />
-    <main>
+    
+    <div>
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/signup" element={<SignUp setUser={setUser} />} />
-        <Route path="/profile" element={<RequireAuth><Profile user={user} /></RequireAuth>} />
-        <Route path="/opportunities" element={<Opportunities user={user} />}/>
-        <Route path="/organizations" element={<Organizations setUser={setUser} />} />
+        <Route path="/" element={<Home user={user} setUser={setUser} />} />
+        {/* <Route path="/about" element={<About setUser={setUser} user={user}/>} /> */}
+        <Route path="/login" element={<Login setUser={setUser} user={user}/>} />
+        <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+        <Route path="/opportunities" element={<Opportunities setUser={setUser} user={user} />}/>
+        <Route path="/organizations" element={<Organizations setUser={setUser} user={user} />} />
+        <Route path="/signup" element={<SignUp setUser={setUser} user={user}/>} />
       </Routes>
-    </main>
+    </div>
   </>
 );
 }

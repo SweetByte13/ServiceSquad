@@ -5,7 +5,7 @@ import { Container } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
 
-function SignUpForm({ setUser }) {
+function SignUpForm({ user, setUser }) {
     const [signup, setSignUp] = useState(true);
     const navigate = useNavigate();
 
@@ -37,13 +37,15 @@ function SignUpForm({ setUser }) {
             body: JSON.stringify(values)
         }).then((resp) => {
             if (resp.ok) {
-                resp.json().then((user) => 
-                    setUser(user))
-                    navigate("/");
+                return resp.json()
             }   else {
                 alert('Invalid credentials')
             }
-        })
+        }).then((user) => {
+            setUser(user);
+            console.log(user);
+            navigate("/");
+        });
         setSubmitting (false);
     }
 

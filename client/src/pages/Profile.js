@@ -2,15 +2,16 @@ import React from "react";
 import NavBar from "../components/NavBar"
 import ProfileForm from "../components/ProfileForm";
 
-function Profile({ setUser }) {
+function Profile({ user, setUser }) {
     return (
         <div>
-            <NavBar />
-            <ProfileForm setUser={setUser} />
+            <NavBar user={user} setUser={setUser} />
+            <main>
+            
             <br></br>
-            <body>
                 <p>This is the Profile.</p>
-            </body>
+                <ProfileForm setUser={setUser} />
+            </main>
         </div>
     )
 }

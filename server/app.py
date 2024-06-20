@@ -47,10 +47,10 @@ class CheckSession(Resource):
         if 'volunteer_id' in session:
             volunteer_id = session['volunteer_id']
             if volunteer_id:
-                volunteer = db.session.get(Volunteer, id)
+                volunteer = db.session.get(Volunteer, volunteer_id)
                 if volunteer:
                     return make_response(volunteer.to_dict(), 200)
-        return make_response({"body": "None"}, 200) #make_response({"error": "Unauthorized: Must login"}, 401)
+        return make_response({"error": "Unauthorized: Must login"}, 401) #make_response({"error": "Unauthorized: Must login"}, 401)
     
 class Signup(Resource):
     def post(self):
@@ -65,7 +65,7 @@ class Signup(Resource):
         interests = params.get('interests')
         skills = params.get('skills')
         hours_wanted = params.get('hoursWanted')
-        zipcode = params.get('zipcode')
+        zipcode = params.get('zipCode')
         
         volunteer = Volunteer(
             username = username,

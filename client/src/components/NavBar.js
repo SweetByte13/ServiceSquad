@@ -17,9 +17,8 @@ function NavBar({ user, setUser }) {
 
 
   function handleLogoutClick() {
-    fetch("http://localhost:5555/logout", 
+    fetch("http://localhost:5555/logout/1", 
       { 
-        credentials: 'include',
         method: "DELETE",
         headers: {
         'Content-Type': 'application/json'
@@ -56,7 +55,7 @@ function NavBar({ user, setUser }) {
               <Nav.Link className="nav-link" href="profile">Profile</Nav.Link>
               <Nav.Link className="nav-link" href="signup">Signup</Nav.Link>
             </Nav>
-           {!!user ? <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button> : <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button>}
+           {user === null || user === undefined ? <Button className="navbar-login-btn" onClick={handleLogInClick}>Login</Button> : <Button className="navbar-login-btn" onClick={handleLogoutClick}>Logout</Button>}
           </Navbar.Collapse>
         </Container>
       </Navbar>

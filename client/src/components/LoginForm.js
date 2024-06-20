@@ -15,7 +15,7 @@ function LoginForm({ user, setUser }) {
 
     const handleSubmit = (values, {setSubmitting}) => {
         console.log("form submitted")
-        fetch('http://localhost:5555/login', {
+        fetch("/login", {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
@@ -23,14 +23,16 @@ function LoginForm({ user, setUser }) {
             body: JSON.stringify(values)
         }).then((resp) => {
             if (resp.ok) {
-                resp.json().then((user) => 
-                    setUser(user))
-                    navigate("/");
+                return resp.json();
             }
             else {
                 alert('Invalid credentials')
             }
-        })
+        }).then((user) => {
+            setUser(user);
+            console.log(user)
+            navigate("/");
+        });
         setSubmitting (false);
     }
 
@@ -40,7 +42,7 @@ function LoginForm({ user, setUser }) {
     }
 
     return (
-        <Container>
+        <Container className="login-container">
             <Formik
                 initialValues={initialValues}
                 validationSchema={LoginSchema}
