@@ -76,7 +76,7 @@ const handleDeleteSubmit = (values) => {
         hoursWanted: ''
     });
 
-
+export default ProfileForm;
 
 
 

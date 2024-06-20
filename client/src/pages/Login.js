@@ -19,8 +19,6 @@ function Login({ onLogin }) {
                 </p>
                 <LogInForm onLogin={onLogin} />
                 <br></br>
-                
-                
             </main>
         </div>
     )

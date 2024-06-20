@@ -280,8 +280,94 @@ body {
 
 /* SIGNUP */
 .signup-container {
-  margin-top: 150px
+  margin-top: 10px;
+  margin-bottom: 150px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
 }
+
+.signup-header {
+  margin-left: 100px;
+  margin-top: 100px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+
+.signup-sub-header {
+  margin-left: 100px;
+  margin-bottom: 10px;
+  color: #3f646f;
+  font-weight: 550;
+  font-family: Verdana;
+}
+
+.form {
+  margin-top:50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 600px;
+}
+
+.form label, 
+.form input {
+ grid-column: span 1;
+}
+
+.form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form .button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #ffa101;
+  font-family: Verdana;
+  color: #31525b;
+}
+
+.form .left-column {
+  grid-column: 1;
+}
+
+.form .right-column {
+  grid-column: 2;
+}
+
+.form .left-column, 
+.form .right-column {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* LOGIN */
 .login-form {
@@ -291,7 +377,6 @@ body {
   align-items: center;
   width: 50%;
   height: 100%;
-  /* position: relative; */
 }
 
 .login-header {
@@ -337,6 +422,8 @@ body {
   cursor: pointer !important;
 }
 
+
+/* FOOTER */
 .footer {
   background-color: #ffa101;
   bottom: 0;
