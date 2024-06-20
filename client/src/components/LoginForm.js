@@ -31,7 +31,7 @@ function LoginForm({ user, setUser }) {
         }).then((user) => {
             setUser(user);
             console.log(user)
-            setTimeout(500, () => navigate("/"));
+            setTimeout(() => (navigate("/")), 500);
         });
         setSubmitting (false);
     }
@@ -42,6 +42,7 @@ function LoginForm({ user, setUser }) {
     }
 
     return (
+        
         <Container className="login-container">
             <Formik
                 initialValues={initialValues}
