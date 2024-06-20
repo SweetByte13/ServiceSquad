@@ -5,8 +5,10 @@ import OrganizationContainer from "../components/OrganizationContainer";
 
 
 function Organizations({ user, setUser}) {
-  const [searchOrg, setSearchOrg] = useState("")
+  
   const [orgs, setOrgs] = useState([])
+
+  const [searchOrg, setSearchOrg] = useState("")
 
   useEffect(() => {
     fetch("/organizations")
@@ -14,13 +16,17 @@ function Organizations({ user, setUser}) {
       .then((orgs) => setOrgs(orgs))
   }, [])
 
+  const searchedOrgs = orgs.filter((org) => {
+    return (org.name.toLowerCase().includes(searchOrg.toLowerCase()))
+  })
+
   return (
     <>
     <NavBar user={user} setUser={setUser} />
     <main>
       <h1 className="opp-org-header">Organizations</h1>
-        <Search setSearchOrg={setSearchOrg} searchOrg={searchOrg}/>
-        <OrganizationContainer orgs={orgs} setOrgs={setOrgs}/>
+        <Search setSearchOrg={setSearchOrg}/>
+        <OrganizationContainer orgs={searchedOrgs}/>
     </main>
     </>
   );

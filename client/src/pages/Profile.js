@@ -7,8 +7,8 @@ function Profile({ user, setUser }) {
         <div>
             <NavBar user={user} setUser={setUser} />
             <main>
-            
-            <br></br>
+                <h1 className="profile-header">Your Volunteer Profile</h1>
+                <h4 className="profile-sub-header">Maintain and update your profile below.</h4>
                 <ProfileForm setUser={setUser} user={user} />
             </main>
         </div>

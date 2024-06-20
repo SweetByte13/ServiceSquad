@@ -6,7 +6,8 @@
 }
 
 main {
-  margin-top: 56px;
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 
 body {
@@ -153,8 +154,8 @@ body {
 
 /* OPPORTUNITIES */
 .opp-org-header { 
-  margin-left: 50px;
-  margin-top: 40px;
+  margin-left: 65px;
+  margin-top: 65px;
   margin-bottom: 40px;
   padding-top: 40px;
   color: #31525b;
@@ -227,6 +228,7 @@ body {
 }
 
 .filter{
+  margin-left: 20px;
   margin-right: 8px;
 }
 
@@ -257,7 +259,7 @@ body {
 .searchbar {
   margin-top: 5px;
   margin-bottom: 30px;
-  margin-left: 50px;
+  margin-left: 65px;
   display: flex;
   flex-direction: row;
 }
@@ -276,7 +278,44 @@ body {
 
 
 /* PROFILE */
+.profile-header {
+  margin-left: 100px;
+  margin-top: 100px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+.profile-sub-header {
+  margin-left: 100px;
+  margin-bottom: 10px;
+  color: #3f646f;
+  font-weight: 550;
+  font-family: Verdana;
+}
 
+.profile-container {
+  margin-top: 10px;
+  margin-bottom: 150px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+
+.form .button-container-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  grid-column: 1;
+}
+
+.form .button-container-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  grid-column: 2;
+}
 
 /* SIGNUP */
 .signup-container {
@@ -380,8 +419,8 @@ body {
 }
 
 .login-header {
-  margin-left: 50px;
-  margin-top: 40px;
+  margin-left: 60px;
+  margin-top: 56px;
   margin-bottom: 10px;
   padding-top: 40px;
   color: #31525b;
@@ -391,7 +430,7 @@ body {
 }
 
 .signup-loginpage {
-  margin-left: 50px;
+  margin-left: 65px;
   color: #31525b;
   font-family: Verdana;
 }
@@ -423,11 +462,11 @@ body {
 }
 
 
-/* FOOTER */
+/* FOOTER
 .footer {
   background-color: #ffa101;
   bottom: 0;
   left: 0;
   right: 0;
   margin-top: 20px;
-}
+} */
