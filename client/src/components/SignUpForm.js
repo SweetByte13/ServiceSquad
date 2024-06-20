@@ -60,7 +60,7 @@ function SignUpForm({ user, setUser }) {
         zipCode: '',
         interests: '',
         skills: '',
-        hoursWanted: ''
+        hoursWanted: '',
     }
 
     return (

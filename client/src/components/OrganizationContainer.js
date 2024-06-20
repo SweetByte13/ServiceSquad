@@ -3,7 +3,7 @@ import Stack from 'react-bootstrap/Stack';
 import OrganizationCard from "../components/OrganizationCard";
 // import Col from 'react-bootstrap/Col';
 
-function OrganizationContainer({orgs}) {
+function OrganizationContainer({user, orgs}) {
 
     const organizationCards = orgs.map((org) => {
         return (
@@ -28,3 +28,4 @@ function OrganizationContainer({orgs}) {
     }
 
 export default OrganizationContainer;
+

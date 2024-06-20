@@ -188,7 +188,7 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="left-column">
+                        <div className="right-column">
                             <label htmlFor='interests'>Interests:</label>
                             <input
                                 id='interests'
@@ -199,7 +199,7 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="right-column">
+                        <div className="left-column">
                             <label htmlFor='skills'>Skills:</label>
                             <input
                                 id='skills'
