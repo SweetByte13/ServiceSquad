@@ -9,7 +9,7 @@ function Organizations({ user, setUser}) {
   const [orgs, setOrgs] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:5555/organizations")
+    fetch("/organizations")
       .then((resp) => (resp.json()))
       .then((orgs) => setOrgs(orgs))
   }, [])

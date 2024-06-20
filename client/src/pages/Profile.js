@@ -9,8 +9,8 @@ function Profile({ user, setUser }) {
             <main>
             
             <br></br>
-                <p>This is the Profile.</p>
-                <ProfileForm setUser={setUser} />
+                <p>Edit your profile here.</p>
+                <ProfileForm setUser={setUser} user={user} />
             </main>
         </div>
     )
