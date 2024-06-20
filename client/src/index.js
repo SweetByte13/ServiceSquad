@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //the above bootstrap import is for the carousel feature
 
 import Home from "./pages/Home";
-import About from "./components/About";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";

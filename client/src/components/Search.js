@@ -1,7 +1,6 @@
 import React from "react";
 
 function Search({setSearchOrg, searchOrg}) {
-function Search({setSearchOrg, searchOrg}) {
     return (
         <div className="searchbar">
             <label className="searchlabel" htmlFor="search">Search by Organization:</label>
