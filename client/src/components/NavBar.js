@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
 
 
   function handleLogoutClick() {
-    fetch("http://localhost:5555/logout/1", 
+    fetch("/logout", 
       { 
         method: "DELETE",
         headers: {
@@ -24,6 +24,7 @@ function NavBar({ user, setUser }) {
   }).then((resp) => {
       if (resp.ok) {
         setUser(null);
+        navigate("/")
       }
     });
   }
