@@ -155,7 +155,7 @@ function ProfileForm({ user, setUser }) {
                             onChange={handleChange}
                         />
                     </div>  */}
-                        <div className="left-column">
+                        <div className="right-column">
                             <label htmlFor='phoneNumber'>Phone Number:</label>
                             <input
                                 id='phoneNumber'
@@ -166,7 +166,7 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="right-column">
+                        <div className="left-column">
                             <label htmlFor='zipCode'>Zip Code:</label>
                             <input
                                 id='zipCode'
@@ -177,7 +177,7 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="left-column">
+                        <div className="right-column">
                             <label htmlFor='interests'>Interests:</label>
                             <input
                                 id='interests'
@@ -188,7 +188,7 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="right-column">
+                        <div className="left-column">
                             <label htmlFor='skills'>Skills:</label>
                             <input
                                 id='skills'
@@ -199,7 +199,7 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="left-column">
+                        <div className="right-column">
                             <label htmlFor='hoursWanted'>Hours Wanted:</label>
                             <input
                                 id='hoursWanted'

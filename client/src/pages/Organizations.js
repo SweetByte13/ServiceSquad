@@ -14,6 +14,23 @@ function Organizations({ user, setUser}) {
       .then((orgs) => setOrgs(orgs))
   }, [])
 
+//   useEffect(() => {
+//     setOrgs([
+//         {
+//             name:"Example Organization",
+//             website:"Will contain HTML",
+//             category: "Legal",
+//             opportunities:"Proof reader needed",
+//         },
+//         {
+//             name:"Example Organization 2",
+//             website:"Will contain HTML",
+//             category: "Food",
+//             opportunities:"Packing food pantry boxes",
+//         }
+//     ])
+// })
+
   return (
     <>
     <NavBar user={user} setUser={setUser} />

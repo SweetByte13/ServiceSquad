@@ -29,7 +29,7 @@ def create_volunteers():
             last_name=last_name,
             email=email,
             phone_number=generate_phone_number(),
-            username=fake.user_name().ljust(6,"1"),
+            username=fake.user_name().ljust(8,"1"),
             _password_hash=fake.password()+'!',
             interests=fake.sentence(),
             skills=fake.sentence(),

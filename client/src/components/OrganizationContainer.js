@@ -13,6 +13,14 @@ function OrganizationContainer({user, orgs}) {
         )
     })
 
+        // return (
+        //     <div key={org.idx}>
+        //         <OrganizationCard key={org.id} org={org}/>
+        //     </div>
+        //     );
+        //     }
+        // )
+
         return (
             <div>
                 <Stack className="org-stack" gap={4}>

@@ -522,27 +522,26 @@ body {
 
 /* LOGIN */
 .login-form {
-  margin-left: 10%;
+  margin: auto;
   margin-top: 40px;
-  justify-content: center;
-  align-items: center;
   width: 50%;
-  height: 100%;
 }
 
 .login-header {
-  margin-left: 50px;
   margin-top: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding-top: 40px;
   color: #31525b;
   font-weight: 550;
   font-style: italic;
   font-family: Verdana;
+  display: flex;
+  justify-content: center;
 }
 
+
 .signup-loginpage {
-  margin-left: 50px;
+  text-align: center;
   color: #31525b;
   font-family: Verdana;
 }
@@ -559,12 +558,14 @@ body {
 
 .mb-3 {
   color: #31525b;
+  font-style: italic;
   font-family: Verdana;
+  font-weight: bold;
 }
 
 .login-button {
   margin-top: 5px !important;
-  margin-left: 5px !important;
+  margin-left: 250px !important;
   padding: 5px 10px !important;
   background-color: #ffa101 !important;
   border: none !important;
@@ -572,6 +573,7 @@ body {
   color: #31525b !important;
   cursor: pointer !important;
 }
+
 
 
 /* FOOTER */
