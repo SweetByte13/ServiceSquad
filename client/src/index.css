@@ -6,7 +6,8 @@
 }
 
 main {
-  margin-top: 56px;
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 
 body {
@@ -153,10 +154,9 @@ body {
 
 /* OPPORTUNITIES */
 .opp-org-header { 
-  margin-left: 50px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #31525b;
   font-weight: 550;
   font-style: italic;
@@ -177,7 +177,7 @@ body {
 .opp-card {
   background-color: #b3dee5 !important;
   color: #31525b !important;
-  width: 65vw;
+  width: 75vw;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -211,10 +211,12 @@ body {
 }
 
 .dropdown {
-  margin-top: 5px;
+  margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   font-family: Verdana;
   font-weight: 600;
@@ -227,6 +229,7 @@ body {
 }
 
 .filter{
+  margin-left: 20px;
   margin-right: 8px;
 }
 
@@ -243,22 +246,64 @@ body {
 
 
 /* ORGANIZATIONS */
+.org-stack {
+  justify-content: center;
+  align-items: center;
+}
+
+.orgcard-text {
+  position: relative;
+  flex: 1;
+  padding: 20px;
+}
+
 .org-card {
   background-color: #b3dee5 !important;
   color: #31525b !important;
-  width: 65vw;
-  margin-left: 50px;
+  width: 75vw;
+  /* margin-left: 50px; */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card-header {
   background-color: #ffa101 !important;
 }
 
+.orgcard-img {
+  position: absolute;
+  top: 70%;
+  right: 30px;
+  width: 200px;
+  height: auto;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.card-logo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .orgcard-img {
+    position: relative;
+    transform: none;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    right: auto;
+  }
+}
+
 .searchbar {
-  margin-top: 5px;
+  margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
 }
 
@@ -276,7 +321,44 @@ body {
 
 
 /* PROFILE */
+.profile-header {
+  margin-left: 100px;
+  margin-top: 100px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+.profile-sub-header {
+  margin-left: 100px;
+  margin-bottom: 10px;
+  color: #3f646f;
+  font-weight: 550;
+  font-family: Verdana;
+}
 
+.profile-container {
+  margin-top: 10px;
+  margin-bottom: 150px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+
+.form .button-container-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  grid-column: 1;
+}
+
+.form .button-container-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  grid-column: 2;
+}
 
 /* SIGNUP */
 .signup-container {
@@ -288,20 +370,13 @@ body {
   font-family: Verdana;
 }
 
-.signup-header {
-  margin-left: 100px;
-  margin-top: 100px;
-  color: #31525b;
-  font-weight: 550;
-  font-style: italic;
-  font-family: Verdana;
-}
-
-.signup-sub-header {
-  margin-left: 100px;
-  margin-bottom: 10px;
+.profile-sub-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #3f646f;
   font-weight: 550;
+  font-style: italic;
   font-family: Verdana;
 }
 
@@ -313,6 +388,124 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   width: 600px;
+}
+
+/* .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+} */
+
+.form label, 
+.form input {
+ grid-column: span 1;
+}
+
+.form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form .button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #ffa101;
+  font-family: Verdana;
+  color: #31525b;
+}
+
+.form .left-column {
+  grid-column: 1;
+}
+
+.form .right-column {
+  grid-column: 2;
+}
+
+.form .left-column, 
+.form .right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* SIGNUP */
+.signup-container {
+  margin-top: 30px;
+  margin-bottom: 150px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+/* .signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+} */
+
+.signup-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #31525b;
+  font-weight: 550;
+  font-style: italic;
+  font-family: Verdana;
+}
+
+.signup-sub-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3f646f;
+  font-weight: 550;
+  font-family: Verdana;
+}
+
+/* .form {
+  margin-top:50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 600px;
+} */
+
+.form {
+  display: grid;
+  place-items: center;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .form label, 
@@ -371,27 +564,26 @@ body {
 
 /* LOGIN */
 .login-form {
-  margin-left: 10%;
+  margin: auto;
   margin-top: 40px;
-  justify-content: center;
-  align-items: center;
   width: 50%;
-  height: 100%;
 }
 
 .login-header {
-  margin-left: 50px;
   margin-top: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding-top: 40px;
   color: #31525b;
   font-weight: 550;
   font-style: italic;
   font-family: Verdana;
+  display: flex;
+  justify-content: center;
 }
 
+
 .signup-loginpage {
-  margin-left: 50px;
+  text-align: center;
   color: #31525b;
   font-family: Verdana;
 }
@@ -408,12 +600,14 @@ body {
 
 .mb-3 {
   color: #31525b;
+  font-style: italic;
   font-family: Verdana;
+  font-weight: bold;
 }
 
 .login-button {
   margin-top: 5px !important;
-  margin-left: 5px !important;
+  margin-left: 250px !important;
   padding: 5px 10px !important;
   background-color: #ffa101 !important;
   border: none !important;
@@ -423,11 +617,11 @@ body {
 }
 
 
-/* FOOTER */
+/* FOOTER
 .footer {
   background-color: #ffa101;
   bottom: 0;
   left: 0;
   right: 0;
   margin-top: 20px;
-}
+} */

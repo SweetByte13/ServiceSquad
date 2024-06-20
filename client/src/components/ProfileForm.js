@@ -155,17 +155,6 @@ function ProfileForm({ user, setUser }) {
                             onChange={handleChange}
                         />
                     </div>  */}
-                        <div className="left-column">
-                            <label htmlFor='phoneNumber'>Phone Number:</label>
-                            <input
-                                id='phoneNumber'
-                                name='phoneNumber'
-                                placeholder='Phone Number'
-                                required
-                                value={values.phoneNumber}
-                                onChange={handleChange}
-                            />
-                        </div>
                         <div className="right-column">
                             <label htmlFor='zipCode'>Zip Code:</label>
                             <input
@@ -178,28 +167,17 @@ function ProfileForm({ user, setUser }) {
                             />
                         </div>
                         <div className="left-column">
-                            <label htmlFor='interests'>Interests:</label>
+                            <label htmlFor='phoneNumber'>Phone Number:</label>
                             <input
-                                id='interests'
-                                name='interests'
-                                type='interests'
-                                placeholder='Interests'
-                                value={values.interests}
+                                id='phoneNumber'
+                                name='phoneNumber'
+                                placeholder='Phone Number'
+                                required
+                                value={values.phoneNumber}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className="right-column">
-                            <label htmlFor='skills'>Skills:</label>
-                            <input
-                                id='skills'
-                                name='skills'
-                                type='skills'
-                                placeholder='Skills'
-                                value={values.skills}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="left-column">
                             <label htmlFor='hoursWanted'>Hours Wanted:</label>
                             <input
                                 id='hoursWanted'
@@ -210,12 +188,33 @@ function ProfileForm({ user, setUser }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="button-container">
-                            <button className="button-profileform" type='submit'>Submit</button>
+                        <div className="right-column">
+                            <label htmlFor='interests'>Interests:</label>
+                            <input
+                                id='interests'
+                                name='interests'
+                                type='interests'
+                                placeholder='Interests'
+                                value={values.interests}
+                                onChange={handleChange}
+                            />
                         </div>
-                        <br></br>
-                        <div className="button-container">
-                            <button className="button-profileform" onClick={() => handleAccountDelete()}>Delete Account</button>
+                        <div className="left-column">
+                            <label htmlFor='skills'>Skills:</label>
+                            <input
+                                id='skills'
+                                name='skills'
+                                type='skills'
+                                placeholder='Skills'
+                                value={values.skills}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="button-container-left">
+                            <button type='submit'>Submit</button>
+                        </div>
+                        <div className="button-container-right">
+                            <button onClick={() => handleAccountDelete()}>Delete Account</button>
                         </div>
                     </form>
                 )}

@@ -1,9 +1,9 @@
 import React from "react";
 import Stack from 'react-bootstrap/Stack';
 import OrganizationCard from "../components/OrganizationCard";
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 
-function OrganizationContainer({orgs}) {
+function OrganizationContainer({user, orgs}) {
 
     // const organization = orgs.map((org) => {
     //     return (
@@ -28,4 +28,6 @@ function OrganizationContainer({orgs}) {
             </div>
         )
     }
+
 export default OrganizationContainer;
+
