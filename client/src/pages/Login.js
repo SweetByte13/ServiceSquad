@@ -11,13 +11,13 @@ function Login({ setUser, user }) {
             <NavBar user={user} setUser={setUser} />
             <main>
                 
-                <h2 className="login-header">Welcome Back to ServiceSquad</h2>
-                <p className="signup-loginpage">
+                <h1 className="login-header">Welcome Back to ServiceSquad</h1>
+                <h4 className="signup-loginpage">
                     Don't have an account? &nbsp;
                     <Button className="signup-button-loginpage" onClick={() => navigate("/signup")}>
                         Sign Up
                     </Button>
-                </p>
+                </h4>
                 <LogInForm setUser={setUser} />
                 <br></br>
             </main>
