@@ -25,7 +25,6 @@ In another terminal, run React from the project root directory:
 - $ npm start --prefix client
 
 
-
 ## About Us
 
 ServiceSquad was created by Tova Hillman, Julia Whey, and Erin Yant. We drew inspiration from myvoluntier.com, and created our dream app that allows community members to find organizations in their area and connect about volunteer opportunites. 

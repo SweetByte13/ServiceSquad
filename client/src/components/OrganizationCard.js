@@ -21,7 +21,7 @@ function OrganizationCard({org}) {
           <Card.Text className="org-category">Type: {category}</Card.Text>
           <Card.Text className="org-opportunities">{opportunities}</Card.Text>
           <div className="buttons">
-          <Button className="learnMore-button" onClick={() => handleLearnMoreButton()}>Learn More</Button>
+          {/* <Button className="learnMore-button" onClick={() => handleLearnMoreButton()}>Learn More</Button> */}
           </div>
         </Card.Body>
         </div>
