@@ -8,7 +8,7 @@ function OpportunitiesContainer({user, opps}) {
     const opportunity = opps.map((opportunity) => {
         return (
             <div key={opportunity.idx}>
-                <OpportunityCard key={opportunity.id} opportunity={opportunity}/>
+                <OpportunityCard key={opportunity.id} opportunity={opportunity} user={user}/>
             </div>
               );
             }

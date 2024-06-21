@@ -1,13 +1,22 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { faker } from '@faker-js/faker';
+import { useNavigate } from "react-router-dom";
 
-function OpportunityCard({opportunity}) {
+function OpportunityCard({user, opportunity}) {
     const {title, description, remote_or_online, category, dates, duration, organization} = opportunity
-    
+    const navigate = useNavigate();
+
     function handleApplyButton() {
-        // write function
+        if( user === null || user === undefined){
+          alert ("User must be logged in.")
+          return ;
+        }
+        navigate(`/opportunities/${opportunity.id}`)
     }
+
+    let imageURl = faker.image.avatar()
 
     return (
       <Card className="opp-card">
@@ -16,8 +25,8 @@ function OpportunityCard({opportunity}) {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text className="opp-description">{description}</Card.Text>
-            <Card.Text className="opp-remote_or_online">Location: {remote_or_online}</Card.Text>
-            <Card.Text className="opp-category">Type: {category}</Card.Text>
+            <Card.Text className="opp-remote_or_online">Location: {remote_or_online ? "Remote" : "In-Person"}</Card.Text>
+            <Card.Text className="opp-category">Category: {category}</Card.Text>
             <Card.Text className="opp-dates">Date Range: {dates}</Card.Text>
             <Card.Text className="opp-duration">Committment: {duration}</Card.Text>
             <div className="buttons">
@@ -26,8 +35,7 @@ function OpportunityCard({opportunity}) {
           </Card.Body>
         </div>
         <div className="oppcard-img">
-          <Card.Img className="card-logo"  src="https://shareomaha.org/sites/default/files/alzstacked_rgb.jpg"/>
-          {/* add props from api fetch- image source */}
+          <img className="card-logo" src={imageURl} alt="Organization"/>
         </div>
       </Card>
     )

@@ -6,7 +6,6 @@ from flask_bcrypt import Bcrypt
 from config import db, app
 bcrypt = Bcrypt(app)
 
-# Models basics. HAVE NOT CREATED A DATABASE YET! 6/14
 class Volunteer(db.Model, SerializerMixin):
     __tablename__ = 'volunteers'
     

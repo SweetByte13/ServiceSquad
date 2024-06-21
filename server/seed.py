@@ -6,7 +6,6 @@ from flask import request, make_response
 from config import db, app
 from models import Opportunity, Organization, Volunteer
 
-
 fake = Faker()
 
 def generate_phone_number():

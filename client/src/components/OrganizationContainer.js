@@ -5,23 +5,17 @@ import OrganizationCard from "../components/OrganizationCard";
 
 function OrganizationContainer({user, orgs}) {
 
-    const organizationCards = orgs.map((org) => {
+    const organization = orgs.map((org) => {
         return (
-            <OrganizationCard
-                key={org.id}
-                name={org.name}
-                website={org.website}
-                category={org.category}
-            />
-        )})
-            // <Col key={org.idx}>
-            //     <OrganizationCard key={org.id} org={org} />
-            // </Col>
-        
+            <OrganizationCard key={org.id} org={org}/>
+              );
+            }
+        )
+
         return (
             <div>
                 <Stack className="opp-stack" gap={4}>
-                    {/* {organizationCards} */}
+                    {organization}
                </Stack>
             </div>
         )
