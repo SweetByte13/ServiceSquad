@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
 import { AppContext } from "../context/Context";
 
-function NavBar({ setUser }) {
+function NavBar() {
   const navigate = useNavigate();
   const useAppContext = () => useContext(AppContext);
-  const { user } = useAppContext();
+  const { user, setUser } = useAppContext();
 
   function handleLogInClick() {
     navigate("/login")
