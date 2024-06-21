@@ -8,8 +8,7 @@ function Search({setSearchOrg}) {
                 className="searchinput"
                 type="text"
                 id="search"
-                placeholder="Type a name to search... "
-                // value={searchedOrg}
+                placeholder="Search for an organization... "
                 onChange={(e) => setSearchOrg(e.target.value)}
             />
         </div>

@@ -5,7 +5,6 @@ import About from "../components/About";
 
 function Home( {user, setUser}) {
 
-
     return (
     <div>
         <NavBar user={user} setUser={setUser} />

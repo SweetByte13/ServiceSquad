@@ -7,12 +7,11 @@ function OrganizationCard({org}) {
   const {name, website, category, opportunities} = org
 
   const opps = opportunities.map((opp) => {
-    return (<div>
-      <Link to={`../opportunities/${opp.id}`} >{opp.title}</Link>
+    return (<div key={opp.id}>
+      <Link  to={`../opportunities/${opp.id}`} >{opp.title}</Link>
     </div>)
   })
-  console.log(opps)
-    
+
     return (
       <Card className="org-card"> 
         <Card.Header className="card-header" as="h5">{name}</Card.Header>
@@ -20,11 +19,10 @@ function OrganizationCard({org}) {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>Opportunities Available:</Card.Text>
-          <div>{opps}</div>
+          <div className="org-opportunities">{opps}</div>
           <br></br>
           <Card.Text className="org-website">{website}</Card.Text>
           <Card.Text className="org-category">Type: {category}</Card.Text>
-          <Card.Text className="org-opportunities">{opportunities}</Card.Text>
           <div className="buttons">
           </div>
         </Card.Body>

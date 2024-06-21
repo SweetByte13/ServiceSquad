@@ -25,8 +25,8 @@ function OpportunityCard({user, opportunity}) {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text className="opp-description">{description}</Card.Text>
-            <Card.Text className="opp-remote_or_online">Location: {remote_or_online}</Card.Text>
-            <Card.Text className="opp-category">Type: {category}</Card.Text>
+            <Card.Text className="opp-remote_or_online">Location: {remote_or_online ? "Remote" : "In-Person"}</Card.Text>
+            <Card.Text className="opp-category">Category: {category}</Card.Text>
             <Card.Text className="opp-dates">Date Range: {dates}</Card.Text>
             <Card.Text className="opp-duration">Committment: {duration}</Card.Text>
             <div className="buttons">

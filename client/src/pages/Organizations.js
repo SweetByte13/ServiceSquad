@@ -33,7 +33,7 @@ function Organizations({ user, setUser}) {
     <main>
       <h1 className="opp-org-header">Organizations</h1>
         <Search setSearchOrg={setSearchOrg}/>
-        <OrganizationContainer orgs={searchedOrgs}/>
+        <OrganizationContainer orgs={searchedOrgs} />
     </main>
     </>
   );

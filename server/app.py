@@ -50,7 +50,7 @@ class CheckSession(Resource):
                 volunteer = db.session.get(Volunteer, volunteer_id)
                 if volunteer:
                     return make_response(volunteer.to_dict(), 200)
-        return make_response({"error": "Unauthorized: Must login"}, 401) #make_response({"error": "Unauthorized: Must login"}, 401)
+        return make_response({"error": "Unauthorized: Must login"}, 401)
     
 class Signup(Resource):
     def post(self):

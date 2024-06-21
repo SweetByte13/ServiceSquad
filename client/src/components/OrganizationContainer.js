@@ -5,20 +5,12 @@ import OrganizationCard from "../components/OrganizationCard";
 
 function OrganizationContainer({user, orgs}) {
 
-    // const organization = orgs.map((org) => {
-    //     return (
-    //         <Col key={org.idx}>
-    //             <OrganizationCard key={org.id} org={org} />
-    //         </Col>
-    //     )
-    // })
     const organization = orgs.map((org) => {
         return (
             <OrganizationCard key={org.id} org={org}/>
               );
             }
         )
-
 
         return (
             <div>
