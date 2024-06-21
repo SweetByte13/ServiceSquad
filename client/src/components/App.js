@@ -34,7 +34,7 @@ function App() {
 return (
   <>
     <AppContext.Provider
-      value={{user}}
+      value={{user, setUser}}
     >
       <div>
         <Routes>
